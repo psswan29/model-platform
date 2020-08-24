@@ -63,7 +63,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
+            <state relative-caret-position="390">
               <caret line="27" column="98" selection-start-line="27" selection-start-column="98" selection-end-line="27" selection-end-column="98" />
             </state>
           </provider>
@@ -126,8 +126,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="82" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="81" />
     <option name="width" value="1750" />
     <option name="height" value="1030" />
   </component>
@@ -152,6 +152,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/untitled0.py" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -363,12 +364,12 @@
       <workItem from="1597802317865" duration="14673000" />
       <workItem from="1597888398635" duration="16401000" />
       <workItem from="1597977339027" duration="13355000" />
-      <workItem from="1598170419816" duration="3149000" />
+      <workItem from="1598170419816" duration="3748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147584000" />
+    <option name="totallyTimeSpent" value="148183000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
+        <state relative-caret-position="390">
           <caret line="27" column="98" selection-start-line="27" selection-start-column="98" selection-end-line="27" selection-end-column="98" />
         </state>
       </provider>
