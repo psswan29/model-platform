@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28e51aee-c105-4ec9-9c51-8f786967adc3" name="Default Changelist" comment="" />
+    <list default="true" id="28e51aee-c105-4ec9-9c51-8f786967adc3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_for_model_platform/平衡样本.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/平衡样本.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_for_model_platform/降维.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/降维.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/自动建模.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="69" column="33" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="29" />
+            <state relative-caret-position="-1155">
+              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding>
                 <element signature="e#73#110#0" expanded="true" />
               </folding>
@@ -39,41 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/相关性检验.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
-              <folding>
-                <element signature="e#1#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/降维.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py">
+        <entry file="file://$PROJECT_DIR$/code_for_model_platform/平衡样本.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" column="98" selection-start-line="27" selection-start-column="98" selection-end-line="27" selection-end-column="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://F:/anaconda/Lib/site-packages/sklearn/metrics/pairwise.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="173" column="64" selection-start-line="173" selection-start-column="64" selection-end-line="173" selection-end-column="64" />
+            <state relative-caret-position="360">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -98,7 +73,13 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="jason &lt;15375703265@163.com&gt;" />
+      </list>
+    </option>
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
   </component>
   <component name="IdeDocumentHistory">
@@ -117,21 +98,23 @@
         <option value="$PROJECT_DIR$/code_for_model_platform/可视化连续变量层级.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/__init__.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/Logit图.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/降维.py" />
         <option value="$PROJECT_DIR$/自动建模.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/相关性检验.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/缺失同质性检验.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/平衡样本.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/降维.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="81" />
+    <option name="x" value="80" />
     <option name="width" value="1750" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectId" id="1fZwJpJCL4BYYO0kAbKckXiLgpF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -144,6 +127,11 @@
             <path>
               <item name="建模平台" type="b2602c69:ProjectViewProjectNode" />
               <item name="建模平台" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="建模平台" type="b2602c69:ProjectViewProjectNode" />
+              <item name="建模平台" type="462c0819:PsiDirectoryNode" />
+              <item name="code_for_model_platform" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -365,11 +353,21 @@
       <workItem from="1597888398635" duration="16401000" />
       <workItem from="1597977339027" duration="13355000" />
       <workItem from="1598170419816" duration="3748000" />
+      <workItem from="1598234061179" duration="4406000" />
+      <workItem from="1598321740178" duration="2545000" />
     </task>
+    <task id="LOCAL-00001" summary="test of commit">
+      <created>1598234214270</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598234214270</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148183000" />
+    <option name="totallyTimeSpent" value="155134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -381,9 +379,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="0" width="1400" height="824" extended-state="0" />
+    <frame x="64" y="0" width="1400" height="824" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.41520467" visible="true" weight="0.23834586" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.41520467" visible="true" weight="0.24736843" />
       <window_info id="Structure" order="1" sideWeight="0.5847953" side_tool="true" weight="0.2235543" />
       <window_info id="Favorites" order="2" sideWeight="0.5847953" side_tool="true" weight="0.2235543" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -394,11 +393,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32823366" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32680723" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35037595" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.5669173" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32228917" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.56626505" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -409,6 +408,62 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="me" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="me" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test of commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test of commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -476,9 +531,6 @@
           <caret line="1873" selection-start-line="1873" selection-end-line="1873" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/平衡样本.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/缺失填补.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -560,25 +612,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动处理.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量连续变量.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/排序.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建立评分卡.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/饼图.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -632,16 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/Logit图.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="102" column="16" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
-          <folding>
-            <element signature="e#15#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -688,13 +713,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/sklearn/metrics/pairwise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="173" column="64" selection-start-line="173" selection-start-column="64" selection-end-line="173" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/相关性检验.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+          <folding>
+            <element signature="e#1#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建立评分卡.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/交叉列联表.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="70" column="14" lean-forward="true" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
+        <state relative-caret-position="1050">
+          <caret line="70" selection-start-line="70" selection-end-line="71" selection-end-column="8" />
           <folding>
             <element signature="e#8#27#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/Logit图.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="102" column="16" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+          <folding>
+            <element signature="e#15#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/饼图.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -705,44 +771,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="27" column="98" selection-start-line="27" selection-start-column="98" selection-end-line="27" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量连续变量.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量类别变量.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/降维.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/自动建模.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="69" column="33" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="29" />
+        <state relative-caret-position="-1155">
+          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding>
             <element signature="e#73#110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/相关性检验.py">
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/平衡样本.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
-          <folding>
-            <element signature="e#1#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/降维.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/anaconda/Lib/site-packages/sklearn/metrics/pairwise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="173" column="64" selection-start-line="173" selection-start-column="64" selection-end-line="173" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="98" selection-start-line="27" selection-start-column="98" selection-end-line="27" selection-end-column="98" />
+        <state relative-caret-position="360">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>

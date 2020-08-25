@@ -22,3 +22,4 @@ def data_balance_split(data,Y,y_0,y_1,seed=12345,Y_0=0,Y_1=1):
         Y_test = data_Y
     Test = pd.concat([X_test,Y_test],axis=0)
     return Test
+
