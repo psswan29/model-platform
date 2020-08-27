@@ -1,6 +1,8 @@
 # 交叉列联表
 import pandas as pd
 import numpy as np
+
+
 def table_XXX(ddd_1, d1, d2):
     '''
     ddd_3:数据集
