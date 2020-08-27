@@ -126,6 +126,7 @@ print('KS:', AUC_GINI_KS.get_ks(y_test_pred, y_test))
 
 # f-1检验
 f1_result = f1_test(train['Y'], y_pred)
+f1_result2 = f1_test_m(train['Y'], y_pred)
 
 # 模型十等分
 print("模型的十等分：\n", model_10_splitm(model_final, train))
