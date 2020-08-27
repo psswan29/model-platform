@@ -32,7 +32,11 @@ def judge_leibie_lianxu(data_1, divide_value_min=40, divide_value_max=80):
     :param data_1:
     :param divide_value_min: 默认40 用于判断一个变量所有实例（观测）的种类是否超过这个值
     :param divide_value_max:  默认 80
-    :return: var_type_dict 一个记载分类结果的字典 continua 连续变量 discrete 类别变量 other 其他类型
+    :return:
+        var_type_dict 一个记载分类结果的字典
+        continua 连续变量
+        discrete 类别变量
+        other 其他类型
     """
     var_type_dict = defaultdict(list)
     for i in data_1:

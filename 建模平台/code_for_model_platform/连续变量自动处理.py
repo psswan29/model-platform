@@ -5,8 +5,8 @@ def auto_deal_continua(var_continua_analyse_2, data_1):
     :param var_continua_analyse_2:
     :param data_1:
     :return:
-    var_continua_for_model:
-     var_continua_process:
+    var_continua_for_model: 用于建模的连续变量
+     var_continua_process: 变量处理过程
     """
     from .基于卡方连续变量自动分箱 import moto_binning
 

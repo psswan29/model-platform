@@ -69,6 +69,6 @@ def table_XXX(ddd_1, d1, d2):
     # print(tt2)
     return tt2
 
-# todo
+# todo 建立一个英文版的交叉列联表
 def x_table():
     pass

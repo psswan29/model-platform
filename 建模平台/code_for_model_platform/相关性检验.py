@@ -51,21 +51,25 @@ def tst_continu_var(data_1, var_continua_analyse, corr_rate=0.75):
     :return:
     """
     var_cor = cor_data(data_1, var_continua_analyse)
-    var_cor_75_dict = {}
+    var_cor_dict = {}
     # 显示存在相关系数大于0.75的变量
     for i in var_cor:
         if var_cor[i][1][0] >= corr_rate:
             print(i + '\n', var_cor[i][:5], '\n')
-            var_cor_75_dict[i] = var_cor[i]
-    return var_cor_75_dict
+            var_cor_dict[i] = var_cor[i]
+    return var_cor_dict
 
 def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
     """
 
-    :param data_1:
-    :param var_continua_analyse:
-    :param corr_rate:
+    :param data_1: 数据源
+    :param var_continua_analyse:需要分析的连续变量, 一个列表
+    :param corr_rate: 阈值,用于限定相关性，默认0.75
     :return:
+    corr_dict：相关性字典
+    corr_：未通过相关性检验的变量
+    independent_var： 通过相关性检验的变量
+    log：日志，历史记录
     """
     # 对连续变量进行corr检测，设定大于corr_rate 的两个变量线性相关
     # 得到一个corr_dict字典，它记载每个变量都与哪些其他变量线性相关
@@ -84,8 +88,9 @@ def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
             for col in corr_dict[var_name]:
                 partitionalise(col, corr_dict, corr_, independent_var, log)
 
-    corr_dict = tst_continu_var_2(data_1,var_continua_analyse, corr_rate)
+    corr_dict = generate_corr_dict(data_1,var_continua_analyse, corr_rate)
 
+    # 自变量
     independent_var = []
     from collections import defaultdict
     corr_ =defaultdict(set)
@@ -97,13 +102,13 @@ def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
     return corr_dict, corr_, independent_var,log
 
 
-def tst_continu_var_2(data_1,var_continua_analyse, corr_rate):
+def generate_corr_dict(data_1,var_continua_analyse, corr_rate):
     """
-
-    :param data_1:
-    :param var_continua_analyse:
-    :param corr_rate:
-    :return:
+    生成相关性检验字典
+    :param data_1:  数据源
+    :param var_continua_analyse: 需要分析的连续变量, 一个列表
+    :param corr_rate: 阈值,用于限定相关性，默认0.75
+    :return: 一个记录相关性检验结果的字典
     """
     c = data_1[var_continua_analyse].corr()
     c = np.abs(c)

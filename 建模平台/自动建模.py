@@ -16,8 +16,8 @@ var_list = [i for i in  data_1.columns if i not in ['MOBILE_NUMBER', 'CERT_NO', 
 
 # 划分类别变量与连续变量
 # todo
-var_type_dict = divide_cat_con_var(data_1, var_list)
-# var_type_dict = judge_leibie_lianxu(data_1[var_list])
+# var_type_dict = divide_cat_con_var(data_1, var_list)
+var_type_dict = judge_leibie_lianxu(data_1[var_list])
 
 # 缺失同质检验
 # 类别变量分析 仅显示存在同质性的变量
@@ -125,12 +125,10 @@ print('KS:', AUC_GINI_KS.get_ks(y_pred, y_train))
 print('KS:', AUC_GINI_KS.get_ks(y_test_pred, y_test))
 
 # f-1检验
-y_pred = model_final.predict()
-y_pred = pd.DataFrame(y_pred)
-f1_result = f1_test(y_train, y_pred)
+f1_result = f1_test(train['Y'], y_pred)
 
 # 模型十等分
-print("模型的十等分：", model_10_splitm(model_final, train))
+print("模型的十等分：\n", model_10_splitm(model_final, train))
 
 # 预测值转化为评分卡评分
 print(transfer_score(y_pred))

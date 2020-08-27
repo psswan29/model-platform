@@ -5,12 +5,15 @@ import statsmodels.api as sm
 from sklearn import metrics
 
 def var_change(in_df ,X ,Y ,X_min=None,X_max=None):
-# 输入数据集 ：in_df
-# 待转换变量 ：X
-# 目标变量  ：Y
-# 待转换变量最小值处理 ：X_min(默认缺失）
-# 待转换变量最大值处理 ：X_max(默认缺失）
+    """
+    :param in_df: 输入数据集
+    :param X: 待转换变量
+    :param Y: 目标变量
+    :param X_min: 待转换变量最小值处理
+    :param X_max: 待转换变量最大值处理
+    :return:
 
+    """
     in_df[X][in_df[X] >= X_max] = X_max
     in_df[X][in_df[X] <= X_min] = X_min
 # 构建中间DataFrame，只保留目标变量"Y"和待转换变量"X"，并进行相应转换

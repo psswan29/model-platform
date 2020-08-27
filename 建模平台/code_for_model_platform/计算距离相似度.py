@@ -5,11 +5,12 @@ import numpy as np
 def mod(vec):
     x = np.sum(vec**2)
     return x ** 0.5
+# 计算向量的相似度，这里使用cos值
 
 def sim(vect1, vect2):
     s = np.dot(vect1, vect2) / mod(vect1)/ mod(vect2)
     return s
-
+# 计算欧式距离
 def cal_euclidean_dis(vect1, vect2):
     return  np.sqrt(np.sum((vect2 - vect1) ** 2))
 
