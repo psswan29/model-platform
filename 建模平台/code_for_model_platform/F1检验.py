@@ -2,6 +2,12 @@ from sklearn.metrics import classification_report
 import numpy as np
 
 def f1_test(y_train, y_pred):
+    """
+
+    :param y_train:
+    :param y_pred:
+    :return:
+    """
     f1 = []
     i = 0
     while i < 1:
