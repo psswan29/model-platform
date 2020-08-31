@@ -88,7 +88,6 @@ def x_table(data, X_NAME, Y_NAME):
         t = data[(data[X_NAME] == value)]
         t0 = (t[Y_NAME] == 0).sum()
         t1 = (t[Y_NAME] == 1).sum()
-        print(t.shape[0])
         return  t0,t1, t.shape[0]
 
     # 计算占比
@@ -117,6 +116,11 @@ def x_table(data, X_NAME, Y_NAME):
 
     for i, x in enumerate(t):
         t[i] += list(dict_[x[1]](x[0], data, X_NAME, Y_NAME))
+
+    num_y0 = (data[Y_NAME] == 0).sum()
+    num_y1 = (data[Y_NAME] == 1).sum()
+    t.append(['Total','Freq',num_y0, num_y1,data.shape[0]])
+    t.append(['Total','Prop',num_y0/data.shape[0], num_y1/data.shape[0],1])
 
     T = pd.DataFrame(t)
     T.columns = [X_NAME,'type', 'Y_0','Y_1','Total']
