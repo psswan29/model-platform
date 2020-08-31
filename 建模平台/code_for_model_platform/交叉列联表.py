@@ -5,6 +5,7 @@ from functools import lru_cache
 
 def table_XXX(ddd_1, d1, d2):
     '''
+    created by Dengxin
     ddd_3:数据集
     d1:X变量，输入变量名称
     d2:Y变量，输入变量名称
@@ -69,9 +70,16 @@ def table_XXX(ddd_1, d1, d2):
     # print(tt2)
     return tt2
 
-# todo 建立一个英文版的交叉列联表
+#  建立一个英文版的交叉列联表
 def x_table(data, X_NAME, Y_NAME):
-
+    """
+    created by Shaoming, Wang
+    :param data: 源数据
+    :param X_NAME:  输入变量名称
+    :param Y_NAME: 因变量名称
+    :return:
+    """
+    data[X_NAME].fillna('nan',inplace=True)
     x_vs = data[X_NAME].unique()
     type = ['Freq', 'Prop', 'Response_rate', 'col_prop']
     t = [[i, k] for i in x_vs for k in type]
@@ -117,11 +125,13 @@ def x_table(data, X_NAME, Y_NAME):
     for i, x in enumerate(t):
         t[i] += list(dict_[x[1]](x[0], data, X_NAME, Y_NAME))
 
+    # 生成最后‘总计’行
     num_y0 = (data[Y_NAME] == 0).sum()
     num_y1 = (data[Y_NAME] == 1).sum()
     t.append(['Total','Freq',num_y0, num_y1,data.shape[0]])
     t.append(['Total','Prop',num_y0/data.shape[0], num_y1/data.shape[0],1])
 
+    # 转换为dataframe
     T = pd.DataFrame(t)
     T.columns = [X_NAME,'type', 'Y_0','Y_1','Total']
     T.set_index([X_NAME,'type'],inplace=True)
