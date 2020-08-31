@@ -1,7 +1,7 @@
 # 交叉列联表
 import pandas as pd
 import numpy as np
-
+from functools import lru_cache
 
 def table_XXX(ddd_1, d1, d2):
     '''
@@ -70,5 +70,57 @@ def table_XXX(ddd_1, d1, d2):
     return tt2
 
 # todo 建立一个英文版的交叉列联表
-def x_table():
-    pass
+def x_table(data, X_NAME, Y_NAME):
+
+    x_vs = data[X_NAME].unique()
+    type = ['Freq', 'Prop', 'Response_rate', 'col_prop']
+    t = [[i, k] for i in x_vs for k in type]
+
+    # 计算频率
+    def get_freq(value, data, X_NAME, Y_NAME):
+        """
+        :param value: 特征值是什么
+        :param data: 源数据
+        :param X_NAME: 变量名或者特征名称
+        :return: 第一个是Y等于零，第二个是y等于1，第三个是总计
+
+        """
+        t = data[(data[X_NAME] == value)]
+        t0 = (t[Y_NAME] == 0).sum()
+        t1 = (t[Y_NAME] == 1).sum()
+        print(t.shape[0])
+        return  t0,t1, t.shape[0]
+
+    # 计算占比
+    def get_prop(value, data, X_NAME, Y_NAME):
+        data_shape = data.shape[0]
+        t0,t1, total = get_freq(value, data, X_NAME, Y_NAME)
+        return t0/data_shape, t1/data_shape, total/data_shape
+
+    # 计算反馈率/行占比
+    def get_res_rate(value, data, X_NAME, Y_NAME):
+        t0,t1, total = get_freq(value, data, X_NAME, Y_NAME)
+        return t0/(total+1), t1/(total+1), total/(total+1)
+
+    # 计算列比率
+    def get_col_prop(value, data, X_NAME, Y_NAME):
+        num_y0 = (data[Y_NAME] == 0).sum()
+        num_y1 = (data[Y_NAME] == 1).sum()
+
+        t0, t1, total = get_freq(value, data, X_NAME, Y_NAME)
+        return  (t0+1)/(num_y0+1), (t1+1)/(num_y1+1), None
+
+    dict_ = {'Freq': get_freq,
+             'Prop': get_prop,
+             'Response_rate': get_res_rate,
+             'col_prop': get_col_prop }
+
+    for i, x in enumerate(t):
+        t[i] += list(dict_[x[1]](x[0], data, X_NAME, Y_NAME))
+
+    T = pd.DataFrame(t)
+    T.columns = [X_NAME,'type', 'Y_0','Y_1','Total']
+    T.set_index([X_NAME,'type'],inplace=True)
+
+    print(T)
+    return T
