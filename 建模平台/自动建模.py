@@ -1,7 +1,7 @@
 # 测试时间 2020年8月10日
 # 测试环境 python 3.7
 # pandas version 1.0.5
-# 本文档为一个建模实例
+# 本文档代码为一个建模实例
 
 from code_for_model_platform import *
 from sklearn.model_selection import train_test_split
