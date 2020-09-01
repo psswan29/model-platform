@@ -73,6 +73,7 @@ def table_XXX(ddd_1, d1, d2):
 #  建立一个英文版的交叉列联表
 def x_table(data, X_NAME, Y_NAME):
     """
+    建立一个英文版的交叉列联表，解决中文版的乱码问题
     created by Shaoming, Wang
     :param data: 源数据
     :param X_NAME:  输入变量名称
@@ -137,4 +138,5 @@ def x_table(data, X_NAME, Y_NAME):
     T.set_index([X_NAME,'type'],inplace=True)
 
     print(T)
+
     return T
