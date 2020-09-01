@@ -7,6 +7,7 @@ from collections import defaultdict
 
 def cor_data(data_1, variable_list):
     '''
+    邓欣版本
     data_1:数据集
     variable_list：需要计算相关系数的列表
     '''
@@ -59,9 +60,10 @@ def tst_continu_var(data_1, var_continua_analyse, corr_rate=0.75):
             var_cor_dict[i] = var_cor[i]
     return var_cor_dict
 
+# 相关性检验测试版本，基于此版才能进行
 def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
     """
-
+    created by SHAOMING, WANG
     :param data_1: 数据源
     :param var_continua_analyse:需要分析的连续变量, 一个列表
     :param corr_rate: 阈值,用于限定相关性，默认0.75
@@ -90,14 +92,14 @@ def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
 
     corr_dict = generate_corr_dict(data_1,var_continua_analyse, corr_rate)
 
-    # 自变量
+    # 挑选出与其他变量线性无关的变量
+    # 相当于初始化
     independent_var = []
     from collections import defaultdict
     corr_ =defaultdict(set)
     log = []
 
     for i in corr_dict.keys():
-
         partitionalise(i, corr_dict, corr_, independent_var,log)
     return corr_dict, corr_, independent_var,log
 
