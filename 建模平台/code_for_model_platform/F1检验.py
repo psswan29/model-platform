@@ -5,18 +5,20 @@ import pandas as pd
 def f1_test(y_train, y_pred):
     """
     version 邓欣
+    chanegd by shaoming, wang
     :param y_train: 训练集目标变量，真值
     :param y_pred: 预测目标变量，预测值
     :return: 一个列表
     """
+    y_pred = np.array(y_pred)
     f1 = []
     i = 0
     while i < 1:
         y_pred1 = []
         for j in range(len(y_pred)):
-            if y_pred.values[j, 0] > i:
+            if y_pred[j] > i:
                 y_pred1.append(1)
-            elif y_pred.values[j, 0] <= i:
+            elif y_pred[j] <= i:
                 y_pred1.append(0)
         y_pred2 = np.array(y_pred1)
         i += 0.05
