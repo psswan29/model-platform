@@ -71,5 +71,6 @@ def get_col_variance(X):
     row_n = X.shape[0]
     return 1/(row_n -1) * np.sum((X - np.mean(X))**2)
 
+# todo
 def var_clus(X,eigenmax=1,maxclus=None):
     pass
