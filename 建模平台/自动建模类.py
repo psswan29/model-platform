@@ -1,4 +1,4 @@
-# created by SHAOMING, WNAG
+# created by SHAOMING, WANG
 # on  Sep 10th, 2020
 
 from code_for_model_platform import *
@@ -8,8 +8,12 @@ from sklearn.model_selection import train_test_split
 class Step(object):
     def __init__(self, input_nodes=[]):
         self.input_nodes = input_nodes
+
+        # 重要参数初始化
         self.output_nodes = []
         self.X = None
+        self.value = None
+
 
         # 为了创建网络结构
         for node in self.input_nodes:
@@ -40,18 +44,30 @@ class Data_input(Step):
 
 # 数据预处理， 包括数据清洗、建模测试集划分
 class Preprocess(Step):
-    def __init__(self, X, skip=False):
+    def __init__(self, X, skip=False, model='cleanup'):
         super(Step, self).__init__([X])
         self.skip = skip
+        self.model = model
+
     def forward(self):
-        pass
+        model_dict = {
+            'cleanup':self.__data_cleanup,
+            'train_test_split':self.__train_test_split,
+            'new_feature': self.__new_feature
+        }
+        x = self.input_nodes[0]
+        model_dict[self.model](self.X)
+
     def backward(self):
         pass
-    def _data_cleanup(self):
+
+    def __data_cleanup(self, x, **kwargs):
         pass
-    def _train_test_split(self):
+
+    def __train_test_split(self,x, **kwargs):
         pass
-    def _new_feature(self):
+
+    def __new_feature(self,x, **kwargs):
         pass
 
 # 单变量分析
