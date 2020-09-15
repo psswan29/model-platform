@@ -72,16 +72,17 @@ def sample_weight(Train_t,y,i_0,j_1):
     return Train_weight
 
 
-def build_logistic_model(y_name, excluded, train):
+def build_logistic_model(y_name, X_names, train):
     """
     建立逻辑回归模型，此方法是使用stats的内嵌方法，不具备变量筛选功能，
     stepwise_selection以及backward_selection是以此方法为基础
     :param y_name: 因变量名称
-    :param excluded:
-    :param train:
+    :param X_names:解释变量名称
+    :param train: 训练集
     :return:
+    result 建模结果
     """
-    model = smf.logit(y_name + " ~ " + "+".join(excluded), train)
+    model = smf.logit(y_name + " ~ " + "+".join(X_names), train)
     result = model.fit()
     return result
 
@@ -135,9 +136,9 @@ def stepwise_selection(train: pd.DataFrame,
                 print('Add  {:30} with chi-square: {:.6}'.format(best_feature, best_chival))
             changed=True
 
-        # backward step
         if len(included) < 3:
             continue
+
         result_backward = build_logistic_model(y_n, included, train)
         result_backward_w = result_backward.wald_test_terms()
        # use all coefs except intercept
@@ -157,7 +158,7 @@ def stepwise_selection(train: pd.DataFrame,
             break
     result = build_logistic_model(y_n, included, train)
 
-    return result  #model_t为模型,included为解释变量
+    return result
 
 def backward_selection(train: pd.DataFrame,
                        y_name: str ='Y',
