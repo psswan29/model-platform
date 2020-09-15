@@ -49,13 +49,12 @@ import numpy as np
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 import pandas as pd
-from icecream import ic
+
 #对样本加权重
 def sample_weight(Train_t,y,i_0,j_1):
     """    y:目标变量名称
     i_0：非目标观测权重
     j_1:目标观测权重"""
-
 
     i = 0
     T_0 = Train_t[Train_t[y]==0]
@@ -73,8 +72,16 @@ def sample_weight(Train_t,y,i_0,j_1):
     return Train_weight
 
 
-def build_logistic_model(y_n, excluded, train):
-    model = smf.logit(y_n + " ~ " + "+".join(excluded), train)
+def build_logistic_model(y_name, excluded, train):
+    """
+    建立逻辑回归模型，此方法是使用stats的内嵌方法，不具备变量筛选功能，
+    stepwise_selection以及backward_selection是以此方法为基础
+    :param y_name: 因变量名称
+    :param excluded:
+    :param train:
+    :return:
+    """
+    model = smf.logit(y_name + " ~ " + "+".join(excluded), train)
     result = model.fit()
     return result
 
@@ -86,22 +93,23 @@ def stepwise_selection(train: pd.DataFrame,
                        sls=0.05,
                        verbose=False):
     """
-        train - pandas.DataFrame with candidate features 用于训练模型的数据包括因变量
+        created by SHAOMING, WANG
+        train - pandas.DataFrame with candidate features 用于训练模型的数据需包括因变量
         y - dependent variate 因变量名称，字符型
         initial_list - list of features to start with (column names of X)
         sle - 设定阈值，参数决定新变量是否进入模型
         sls - 设定阈值，参数决定输入变量是否被删除
-        verbose - whether to print the sequence of inclusions and exclusions
-    Returns: list of selected features
+        verbose - 是否打印进入模型变量以及排除模型变量
+    Returns:
 
     Always set threshold_in < threshold_out to avoid infinite looping.
 
-    See https://en.wikipedia.org/wiki/Stepwise_regression for the details
     """
 
     X = train[[col for col in train.columns if col != y_n]]
     included = set(initial_list)
     cols = set(X.columns)
+    # 迭代次数
     iter_num = 1
 
     while True:
@@ -120,14 +128,12 @@ def stepwise_selection(train: pd.DataFrame,
         best_feature, best_chival = sorted(new_chival.items(),
                                           key=lambda x: new_chival[x[0]],
                                           reverse=False)[0]
-        ic(best_chival, best_feature)
-        
         if best_chival < sle:
             included.add(best_feature)
-            ic(included)
-            changed=True
-            if verbose:
+            if  verbose:
+                print(included)
                 print('Add  {:30} with chi-square: {:.6}'.format(best_feature, best_chival))
+            changed=True
 
         # backward step
         if len(included) < 3:
@@ -154,10 +160,19 @@ def stepwise_selection(train: pd.DataFrame,
     return result  #model_t为模型,included为解释变量
 
 def backward_selection(train: pd.DataFrame,
-                       y_n: str ='Y',
+                       y_name: str ='Y',
                        sls=0.05,
                        verbose=False):
-    excluded = [col for col in train.columns if col != y_n]
+    """
+    反向淘汰法, 使用递归的方法求
+    :param train: 训练数据
+    :param y_n: 因变量名称
+    :param sls: 设定阈值，参数决定输入变量是否被删除
+    verbose: 是否打印日志
+    :return:
+    result: 模型结果
+    """
+    excluded = [col for col in train.columns if col != y_name]
     log = []
 
     def backward_sub(train, features, y_n, log):
@@ -166,12 +181,14 @@ def backward_selection(train: pd.DataFrame,
         result_t = result_w.summary_frame()
         feature_select = set(f for f in result_t[result_t['P>chi2'] < sls].index if f != 'Intercept')
         if log and feature_select == log[-1]:
+            if verbose:
+                print('the log of building the model is ', log)
             return result
         else:
             log.append(feature_select)
             return backward_sub(train, feature_select, y_n, log)
 
-    return backward_sub(train, excluded, y_n, log)
+    return backward_sub(train, excluded, y_name, log)
 
 if __name__ == '__main__':
     pass
