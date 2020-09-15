@@ -11,6 +11,12 @@ import numpy as np
 import math
 
 def model_10_split(y_pred, y_true):
+    """
+    dengxin 版本模型十等分
+    :param y_pred:
+    :param y_true:
+    :return:
+    """
     def get_stats2(group):
         return{'min':group.min(),
                'max':group.max(),
@@ -18,7 +24,7 @@ def model_10_split(y_pred, y_true):
                'mean':group.mean(),
                'sum':group.sum()}
 
-    data = pd.DataFrame([y_true,y_true])
+    data = pd.DataFrame([y_pred,y_true])
 
     data_sorted = data.sort_values('predict', ascending=False)
     data_sorted['rank_1'] = range(len(data_sorted))
@@ -43,6 +49,14 @@ def model_10_split(y_pred, y_true):
 
 
 def model_10_splitm(model, train, target_n='Y'):
+    """
+    王绍明版本模型十等分
+    :param model: 建立模型
+    :param train: 训练集
+    :param target_n: 因变量mingcheng
+    :return:
+    train_g ： 一个十等分dataframe
+    """
     train['y_pred_'] = model.predict(train)
     train.sort_values(by='y_pred_', ascending=False,inplace=True)
     train.reset_index(drop=True, inplace=True)

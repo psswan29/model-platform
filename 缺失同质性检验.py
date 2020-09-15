@@ -4,10 +4,11 @@ import numpy as np
 # 类别变量统计
 def discrete_variable_table(data_x, variable_list):
     """
-
+    此过程为以下其他离散型变量方法的基础
     :param data_x: 数据集
     :param variable_list: 需要统计的变量名列表
     :return:
+    discrete_variable_dict:一个以变量名为键，dataframe为值的字典
     """
 
     discrete_variable_dict = {}
@@ -23,10 +24,14 @@ def discrete_variable_table(data_x, variable_list):
 
 # 数值变量分为图
 def fenweishu_continuous_variable(data_1, var_list):
-    '''
-    data_1:数据集
-    var_list：需要统计的变量名列表
-    '''
+    """
+    求连续变量分位数，以此来判断连续变量的同质性
+    :param data_1: 数据集
+    :param var_list: 需要统计的变量名列表
+    :return:
+    continuous_variable_dict：一个字典，键为变量名，dataframe为值的字典
+    """
+
     continuous_variable_dict = {}
     for i in var_list:
         fenw = pd.DataFrame(columns=['percentile', 'estimate'])
@@ -45,7 +50,7 @@ def discrete_variable_univar(discrete_1):
     """
     离散变量同质分析
     :param discrete_1:
-    :return: 一个列表
+    :return: 一个承装未通过同质性检验变量的列表
     """
     var_tongzhi_list_1 = []
     for i in discrete_1:
@@ -56,9 +61,9 @@ def discrete_variable_univar(discrete_1):
 
 def continua_variable_univar(continua_1):
     """
-    离散变量同质分析
+    连续变量同质分析
     :param continua_1:
-    :return: 一个列表
+    :return: 一个承装未通过同质性检验变量的列表
     """
     var_tongzhi_list_2 = []
     for i in continua_1:

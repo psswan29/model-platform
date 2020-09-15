@@ -46,6 +46,7 @@ def draw_heat(data_1, var_continua_analyse: list):
 
 def tst_continu_var(data_1, var_continua_analyse, corr_rate=0.75):
     """
+    检验连续变量相关系数
     :param data_1: 数据源
     :param var_continua_analyse: 需要分析的连续变量, 一个列表
     :param corr_rate: 阈值,用于限定相关性，默认0.75
@@ -101,7 +102,7 @@ def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
 
     for i in corr_dict.keys():
         partitionalise(i, corr_dict, corr_, independent_var,log)
-    return corr_dict, corr_, independent_var,log
+    return corr_dict, corr_, independent_var, log
 
 
 def generate_corr_dict(data_1,var_continua_analyse, corr_rate):
