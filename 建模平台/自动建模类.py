@@ -7,12 +7,14 @@ from sklearn.model_selection import train_test_split
 # 此类为之后所有步骤的父类
 class Step(object):
     def __init__(self, input_nodes=[]):
+        # 构建网络的输入节点
         self.input_nodes = input_nodes
 
         # 重要参数初始化
+        # 生成输出节点
         self.output_nodes = []
-        self.X = None
-        self.value = None
+        # 训练数据集
+        self.dataset = None
 
 
         # 为了创建网络结构
@@ -22,31 +24,28 @@ class Step(object):
     # 需要被覆盖
     def forward(self):
         raise NotImplementedError
-    # 需要被覆盖
-    def backward(self):
-        raise NotImplementedError
 
 # 数据输入:
 # 这里需要一个可视化界面，用户可以选取建模使用的变量
 class Data_input(Step):
-    def __init__(self, file_path,encoding,use_feature=[]):
-        super(Step, self).__init__()
+    def __init__(self, file_path,encoding,target_n,use_feature=[]):
+        super().__init__()
         self.file_path = file_path
         self.encoding = encoding
+        self.y_n = target_n
         self.use_feature = use_feature
 
     def forward(self):
-        self.X = pd.read_csv(self.file_path,
-                                 encoding=self.encoding,
-                                 usecols=self.use_feature)
-    def backward(self):
-        pass
+        self.dataset = pd.read_csv(self.file_path,
+                                 encoding=self.encoding)
+        self.X = self.dataset[self.use_feature]
+        self.Y = self.dataset[self.y_n]
+
 
 # 数据预处理， 包括数据清洗、建模测试集划分
 class Preprocess(Step):
-    def __init__(self, X, skip=False, model='cleanup'):
-        super(Step, self).__init__([X])
-        self.skip = skip
+    def __init__(self, input_nodes, model='cleanup'):
+        super().__init__([input_nodes])
         self.model = model
 
     def forward(self):
@@ -55,25 +54,46 @@ class Preprocess(Step):
             'train_test_split':self.__train_test_split,
             'new_feature': self.__new_feature
         }
-        x = self.input_nodes[0]
-        model_dict[self.model](self.X)
 
-    def backward(self):
-        pass
+        self.X = self.input_nodes[0].X
+        self.y = self.input_nodes[0].Y
+
+        self.value = model_dict[self.model]()
+
 
     def __data_cleanup(self, x, **kwargs):
         pass
 
-    def __train_test_split(self,x, **kwargs):
-        pass
+    def __train_test_split(self, **kwargs):
+        if 'random_state' in kwargs.keys() and 'test_size' in kwargs.keys() and 'shuffle' in kwargs.keys():
+            random_state = kwargs['random_state']
+            test_size = kwargs['test_size']
+            shuffle = kwargs['shuffle']
+        else:
+            random_state =123
+            test_size = 0.2
+            shuffle = False
+
+        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(self.X, self.Y, random_state=random_state,
+                         test_size=test_size, shuffle=shuffle)
+        self.dataset_train, self.dataset_test = train_test_split(self.dataset,random_state=random_state,
+                         test_size=test_size, shuffle=shuffle)
 
     def __new_feature(self,x, **kwargs):
         pass
 
+    def __fill_na(self):
+        pass
+
+class Auto_binning(Step):
+    def __init__(self):
+        super().__init__()
+
+
 # 单变量分析
 class Univariate_analysis(Step):
     def __init__(self):
-        super(Step, self).__init__()
+        super().__init__()
     def forward(self):
         pass
     def backward(self):
@@ -81,33 +101,91 @@ class Univariate_analysis(Step):
 
 # 相关性检验
 class Correlation_test(Step):
-    def __init__(self):
-        super(Step, self).__init__()
+    def __init__(self, nodes):
+        super().__init__([nodes])
     def forward(self):
-        pass
-    def backward(self):
-        pass
+        # 画图展示相关系数热力图
+        draw_heat(data_1, var_continua_analyse)
+
+        # 检验连续变量相关系数
+        var_cor_75_dict = tst_continu_var(data_1, var_continua_analyse)
+        # 在这里由于暂时没有合适聚类算法，因此手动筛选变量
+        # todo
+        list_remove_1 = []
+        list_save = []
+        for j in var_cor_75_dict.keys():
+            list_save.append(j)
+            for j2 in var_cor_75_dict[j]:
+                if j2[0] >= 0.75 and (j2[1] not in list_save):
+                    list_remove_1.append(j2[1])
+
 
 
 # 建模
 class Modeling(Step):
-    def __init__(self):
-        super(Step, self).__init__()
+    def __init__(self, nodes, model_method='stepwise'):
+        super().__init__([nodes])
+        self.model_method = model_method
+        self.dataset_train =self.input_nodes[0].dataset_train
+
+    #     todo 设置好属性
+
     def forward(self):
-        pass
-    def backward(self):
-        pass
+        if self.model_method == 'stepwise':
+            self.model = stepwise_selection(self.dataset_train, sle=0.15, sls=0.15)
+        elif self.model_method == 'backwise':
+            self.model = backward_selection(self.dataset_train)
+
+        self.predict_y_train = self.model.predict()
+        # todo
+        self.predict_y_test = self.model.predict(self.)
+
 
 
 # 模型检验
 class Model_test(Step):
-    def __init__(self):
-        super(Step, self).__init__()
+    def __init__(self, model_nodes):
+        super().__init__([model_nodes])
+        self.train_y = self.input_nodes[0].train_y
+        self.test_y = self.input_nodes[0].test_y
+        self.predict_y_train = self.input_nodes[0].predict_y_train
+        self.predict_y_test = self.input_nodes[0].predict_y_test
+        self.dataset_train = self.input_nodes[0].dataset_train
+        self.dataset_test = self.input_nodes[0].dataset_test
 
     def forward(self):
-        pass
+        # todo 设置好属性
+        self.model = self.input_nodes[0].model
 
-    def backward(self):
-        pass
+        # 模型总结
+        self.model_summary = self.model.summary()
+
+        # auc值以及gini系数
+        self.AUC, self.GINI = roc_auc_gini(self.train_y, self.predict_y_train)
+
+        # ks值
+        self.ks = get_ks(self.predict_y_train, self.train_y)
+        self.ks = get_ks(self.predict_y_test, self.test_y)
+
+        # f-1检验
+        self.f1_result = f1_test(self.train_y, self.predict_y_train)
+        self.f1_result2 = f1_test_m(self.train_y, self.predict_y_train)
+
+        # 模型十等分
+        # self.ten_split_train = model_10_split(self.model, self.dataset_train)
+        # self.tes_split_test = model_10_split(self.model, self.dataset_test)
+
+        self.ten_split_train = model_10_splitm(self.model, self.dataset_train)
+        self.tes_split_test = model_10_splitm(self.model, self.dataset_test)
 
 
+class Score_card(Step):
+    def __init__(self, nodes):
+        super().__init__([nodes])
+        self.predict_y_train = self.input_nodes[0].predict_y_train
+        self.model = self.input_nodes[0].model
+
+    def forward(self):
+        print(transfer_score(self.predict_y_train))
+        # 模型系数转换为评分卡
+        print(build_score_card(self.model.params, step_score=50))
