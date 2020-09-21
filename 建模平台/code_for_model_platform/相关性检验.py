@@ -55,7 +55,7 @@ def tst_continu_var(data_1, var_continua_analyse, corr_rate=0.75):
     var_cor_dict = {}
     # 显示存在相关系数大于0.75的变量
     for i in var_cor:
-        if var_cor[i][1][0] >= corr_rate:
+        if np.abs(var_cor[i][1][0]) >= corr_rate:
             print(i + '\n', var_cor[i][:5], '\n')
             var_cor_dict[i] = var_cor[i]
     return var_cor_dict

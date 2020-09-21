@@ -1,3 +1,8 @@
+# collected from https://github.com/jingtt/varclushi
+# created by jingtt
+# 本代码将通过python·实现sas中的proc var cluster 功能
+# 可通过本代码测试文档进行测试
+
 import pandas as pd
 import numpy as np
 import random

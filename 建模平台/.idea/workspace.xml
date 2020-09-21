@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28e51aee-c105-4ec9-9c51-8f786967adc3" name="Default Changelist" comment="test of commit">
+    <list default="true" id="28e51aee-c105-4ec9-9c51-8f786967adc3" name="Default Changelist" comment="generate auto-model class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/F1检验.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/F1检验.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/划分类别变量与连续变量.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/划分类别变量与连续变量.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/变量函数转换.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/变量函数转换.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/可视化连续变量层级.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/可视化连续变量层级.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_for_model_platform/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_for_model_platform/varcluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/varcluster.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code_for_model_platform/相关性检验.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/相关性检验.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code_for_model_platform/降维.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/降维.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/自动建模.py" beforeDir="false" afterPath="$PROJECT_DIR$/自动建模.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/自动建模类.py" beforeDir="false" afterPath="$PROJECT_DIR$/自动建模类.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,50 +34,48 @@
     <favorites_list name="建模平台" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/F1检验.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/自动建模.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="127" selection-start-line="127" selection-end-line="127" selection-end-column="39" />
+            <state relative-caret-position="750">
+              <caret line="50" column="16" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="16" />
               <folding>
-                <element signature="e#73#110#0" expanded="true" />
+                <element signature="e#75#112#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/GINI系数.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量连续变量.py">
+        <entry file="file://$PROJECT_DIR$/自动建模类.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+            <state relative-caret-position="30">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+              <folding>
+                <element signature="e#50#87#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/code_for_model_platform/变量函数转换.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+              <folding>
+                <element signature="e#8#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code_for_model_platform/降维.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="242">
+              <caret line="39" column="15" lean-forward="true" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -91,10 +84,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py">
+        <entry file="file://$PROJECT_DIR$/code_for_model_platform/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+            <state relative-caret-position="276">
+              <caret line="34" selection-start-line="34" selection-end-line="34" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -111,13 +104,17 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>缺失</find>
-      <find>table_XXX</find>
       <find>值</find>
       <find>avg6_shouru</find>
+      <find>table_XXX</find>
+      <find>占比</find>
+      <find>ic</find>
+      <find>PCA_M</find>
     </findStrings>
     <replaceStrings>
       <replace>Value</replace>
       <replace>var_continu</replace>
+      <replace>Prop</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -135,12 +132,9 @@
       <list>
         <option value="$PROJECT_DIR$/code_for_model_platform/缺失填补.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动处理.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/建模.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/检验十等分.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/相关性热图.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/饼图.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/建立评分卡.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/__init__.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/缺失同质性检验.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/平衡样本.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/Logit图.py" />
@@ -149,12 +143,20 @@
         <option value="$PROJECT_DIR$/code_for_model_platform/计算距离相似度.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/相关性检验.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/降维.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/变量函数转换.py" />
-        <option value="$PROJECT_DIR$/自动建模.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/test.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/洛伦兹曲线.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/建立评分卡.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/F1检验.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/建模.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/划分数据集.py" />
+        <option value="$PROJECT_DIR$/自动建模类.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/varcluster.py" />
+        <option value="$PROJECT_DIR$/自动建模.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/相关性检验.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/__init__.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/降维.py" />
       </list>
     </option>
   </component>
@@ -192,7 +194,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/untitled0.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -212,7 +214,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.自动建模">
+  <component name="RunManager" selected="Python.varcluster">
     <configuration name="自动建模" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="建模平台" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -358,9 +360,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="varcluster" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="建模平台" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code_for_model_platform" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code_for_model_platform/varcluster.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.自动建模" />
+        <item itemvalue="Python.varcluster" />
         <item itemvalue="Python.自动建模" />
         <item itemvalue="Python.自动建模" />
         <item itemvalue="Python.自动建模" />
@@ -403,7 +424,28 @@
       <workItem from="1598170419816" duration="3748000" />
       <workItem from="1598234061179" duration="4406000" />
       <workItem from="1598321740178" duration="3957000" />
-      <workItem from="1598493550539" duration="17258000" />
+      <workItem from="1598493550539" duration="19565000" />
+      <workItem from="1598579971899" duration="6885000" />
+      <workItem from="1598594284628" duration="11491000" />
+      <workItem from="1598839816912" duration="22666000" />
+      <workItem from="1598925467081" duration="5755000" />
+      <workItem from="1599012837117" duration="1486000" />
+      <workItem from="1599117519336" duration="2177000" />
+      <workItem from="1599209781741" duration="1201000" />
+      <workItem from="1599211659533" duration="70000" />
+      <workItem from="1599396970505" duration="636000" />
+      <workItem from="1599444967034" duration="3897000" />
+      <workItem from="1599532510619" duration="21402000" />
+      <workItem from="1599567072681" duration="79000" />
+      <workItem from="1599703032256" duration="9720000" />
+      <workItem from="1599818828430" duration="2651000" />
+      <workItem from="1599996388871" duration="116000" />
+      <workItem from="1600050572716" duration="4508000" />
+      <workItem from="1600136334371" duration="5537000" />
+      <workItem from="1600166058684" duration="10000" />
+      <workItem from="1600312601606" duration="13022000" />
+      <workItem from="1600418517734" duration="880000" />
+      <workItem from="1600654913419" duration="15329000" />
     </task>
     <task id="LOCAL-00001" summary="test of commit">
       <created>1598234214270</created>
@@ -440,11 +482,158 @@
       <option name="project" value="LOCAL" />
       <updated>1598495804933</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="test of commit">
+      <created>1598519319906</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598519319906</updated>
+    </task>
+    <task id="LOCAL-00007" summary="20200827 commit">
+      <created>1598520418243</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598520418243</updated>
+    </task>
+    <task id="LOCAL-00008" summary="20200827 commit">
+      <created>1598520551196</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598520551196</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ADD A NEW CROSS_TABLE CREATING FUNCION FINISHED BY SHAOMING">
+      <created>1598862831706</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1598862831706</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ADD A NEW CROSS_TABLE CREATING FUNCION FINISHED BY SHAOMING">
+      <created>1598864956313</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598864956313</updated>
+    </task>
+    <task id="LOCAL-00011" summary="ADD A NEW CROSS_TABLE CREATING FUNCION FINISHED BY SHAOMING">
+      <created>1598866299338</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598866299338</updated>
+    </task>
+    <task id="LOCAL-00012" summary="modify some details">
+      <created>1598927246060</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598927246060</updated>
+    </task>
+    <task id="LOCAL-00013" summary="modify some details">
+      <created>1598957232577</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1598957232577</updated>
+    </task>
+    <task id="LOCAL-00014" summary="modify some details">
+      <created>1598957250378</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1598957250378</updated>
+    </task>
+    <task id="LOCAL-00015" summary="modify some details">
+      <created>1598957276054</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598957276054</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix the bugs of Deng's Version">
+      <created>1599554047071</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1599554047071</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add more new functions in the domain of feature decomposition: PCA_M">
+      <created>1599554175728</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1599554175728</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add more new functions in the domain of feature decomposition: PCA_M">
+      <created>1599561320721</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1599561320721</updated>
+    </task>
+    <task id="LOCAL-00019" summary="generate auto-model class">
+      <created>1599704063090</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1599704063090</updated>
+    </task>
+    <task id="LOCAL-00020" summary="generate auto-model class">
+      <created>1599734458239</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1599734458239</updated>
+    </task>
+    <task id="LOCAL-00021" summary="20200911 18:08">
+      <created>1599818926117</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1599818926117</updated>
+    </task>
+    <task id="LOCAL-00022" summary="generate auto-model class">
+      <created>1600065536096</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1600065536096</updated>
+    </task>
+    <task id="LOCAL-00023" summary=" backwise_selection and add more detailed comments">
+      <created>1600140032998</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1600140032998</updated>
+    </task>
+    <task id="LOCAL-00024" summary="generate auto-model class">
+      <created>1600140969708</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1600140969708</updated>
+    </task>
+    <task id="LOCAL-00025" summary="there are several bugs needed to be solved but I need to stop this project temporarily">
+      <created>1600419390006</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1600419390006</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add varcluster">
+      <created>1600668106371</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1600668106372</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173804000" />
+    <option name="totallyTimeSpent" value="305629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,9 +646,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.41520467" visible="true" weight="0.23624824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.41520467" visible="true" weight="0.2658674" />
       <window_info id="Structure" order="1" sideWeight="0.5847953" side_tool="true" weight="0.2235543" />
       <window_info id="Favorites" order="2" sideWeight="0.5847953" side_tool="true" weight="0.2235543" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -468,19 +656,19 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2892907" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32823366" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.31337047" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.2534819" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.28133705" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29805014" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.42339832" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29665738" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.07520892" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="236" y="190" width="1001" height="484" id="SciView" order="3" sideWeight="0.43589744" visible="true" weight="0.24330042" />
+      <window_info anchor="right" x="236" y="190" width="1001" height="484" id="SciView" order="3" sideWeight="0.82078314" visible="true" weight="0.22637518" />
       <window_info anchor="right" id="Database" order="4" weight="0.3293371" />
-      <window_info anchor="right" x="0" y="0" width="322" height="678" id="Documentation" order="5" sideWeight="0.5641026" side_tool="true" weight="0.46807066" />
+      <window_info anchor="right" x="0" y="0" width="322" height="678" id="Documentation" order="5" sideWeight="0.17921686" side_tool="true" visible="true" weight="0.22637518" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,14 +728,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test of commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="test of commit" />
+    <MESSAGE value="20200827 commit" />
+    <MESSAGE value="ADD A NEW CROSS_TABLE CREATING FUNCION FINISHED BY SHAOMING" />
+    <MESSAGE value="modify some details" />
+    <MESSAGE value="fix the bugs of Deng's Version" />
+    <MESSAGE value="add more new functions in the domain of feature decomposition: PCA_M" />
+    <MESSAGE value="20200911 18:08" />
+    <MESSAGE value=" backwise_selection and add more detailed comments" />
+    <MESSAGE value="generate auto-model class" />
+    <MESSAGE value="there are several bugs needed to be solved but I need to stop this project temporarily" />
+    <MESSAGE value="add varcluster" />
+    <option name="LAST_COMMIT_MESSAGE" value="add varcluster" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/code_for_model_platform/建模.py</url>
-          <line>106</line>
+          <line>115</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -572,23 +770,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>87</line>
+          <line>95</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>75</line>
+          <line>83</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>94</line>
+          <line>102</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>110</line>
+          <line>118</line>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/自动建模.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -598,59 +801,6 @@
     <SUITE FILE_PATH="coverage/$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1596695060162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code_for_model_platform" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lucheng_data.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动处理2.py" />
-    <entry file="file://F:/anaconda/Lib/site-packages/pandas/io/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33643">
-          <caret line="1873" selection-start-line="1873" selection-end-line="1873" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/anaconda/Lib/site-packages/statsmodels/base/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="511" selection-start-line="511" selection-end-line="511" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/anaconda/Lib/site-packages/IPython/core/interactiveshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="3324" selection-start-line="3324" selection-end-line="3324" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/anaconda/Lib/site-packages/statsmodels/formula/formulatools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/anaconda/Lib/site-packages/patsy/highlevel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="309" selection-start-line="309" selection-end-line="309" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/PycharmProjects/untitled2/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/untitled0.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1053" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/PycharmProjects/untitled1/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -664,16 +814,6 @@
     <entry file="file://$PROJECT_DIR$/自动建模.ipynb" />
     <entry file="file://$PROJECT_DIR$/Untitled.ipynb" />
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/相关性热图.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/检验十等分.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding>
-            <element signature="e#131#150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动处理.py" />
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/排序.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -686,16 +826,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/file/新建文本文档.txt" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建模.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1762">
-          <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
-          <folding>
-            <element signature="e#1672#1690#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/anaconda/Lib/site-packages/seaborn/regression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3188">
@@ -703,40 +833,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="e#87#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/nlp/lesson-01/lesson-01/Lecture-01-Syntax-Tree-and-Language-Model.ipynb课程在线准备代码.ipynb">
-      <provider selected="true" editor-type-id="jupyter-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/nlp/lesson-02/Lecture_02.ipynb/Lecture_02.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://F:/anaconda/Lib/site-packages/sklearn/metrics/pairwise.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="173" column="64" selection-start-line="173" selection-start-column="64" selection-end-line="173" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建立评分卡.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/平衡样本.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -754,138 +857,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/可视化连续变量层级.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/AUC_GINI_KS.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="10" />
-          <folding>
-            <element signature="e#12#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/KS值.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#87#129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/去重.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-218">
-          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/划分类别变量与连续变量.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/相关性检验.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#1#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/Logit图.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#15#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/交叉列联表.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" column="14" lean-forward="true" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
-          <folding>
-            <element signature="e#8#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/划分数据集.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/降维.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/洛伦兹曲线.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="15" />
-          <folding>
-            <element signature="e#12#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/GINI系数.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量连续变量.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量类别变量.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/变量函数转换.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding>
-            <element signature="e#8#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/缺失填补.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -904,9 +877,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/衍生变量连续变量.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/GINI系数.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/nlp/lesson-02/Lecture_02.ipynb/Lecture_02.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/nlp/lesson-03/Lecture_3.ipynb/Lecture_3.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/test.py" />
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/洛伦兹曲线.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/等分表.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="315">
           <caret line="32" column="27" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="27" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -914,29 +914,241 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/饼图.py">
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="60">
+          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/自动建模.py">
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建立评分卡.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="127" selection-start-line="127" selection-end-line="127" selection-end-column="39" />
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="2268" column="14" lean-forward="true" selection-start-line="2268" selection-start-column="14" selection-end-line="2268" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/numpy/linalg/linalg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="1201" lean-forward="true" selection-start-line="1201" selection-end-line="1201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/build-neural-network/dnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/Logit图.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#73#110#0" expanded="true" />
+            <element signature="e#15#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建模.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="15" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
+          <folding>
+            <element signature="e#1672#1690#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/交叉列联表.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="81" column="7" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+          <folding>
+            <element signature="e#8#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/AUC_GINI_KS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="e#12#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/KS值.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#87#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/sklearn/model_selection/_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="2013" column="13" selection-start-line="2013" selection-start-column="4" selection-end-line="2013" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/检验十等分.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="e#131#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/划分数据集.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/去重.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/饼图.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/平衡样本.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding>
+            <element signature="e#9#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="29" lean-forward="true" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+          <folding>
+            <element signature="e#140#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/可视化连续变量层级.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/F1检验.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+        <state relative-caret-position="480">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/numpy/core/_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/varcluster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2115">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+          <folding>
+            <element signature="e#133#152#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/相关性检验.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+          <folding>
+            <element signature="e#1#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/划分类别变量与连续变量.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="34" selection-start-line="34" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/自动建模.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="e#75#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/自动建模类.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding>
+            <element signature="e#50#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/变量函数转换.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+          <folding>
+            <element signature="e#8#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/降维.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="39" column="15" lean-forward="true" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

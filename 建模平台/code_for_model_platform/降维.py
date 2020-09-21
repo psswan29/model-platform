@@ -24,8 +24,9 @@ def decomposit(X,n_component, mode='pca'):
         x_result = manifold.TSNE(n_components=n_component, init='pca', random_state=0).fit_transform(X)
     return x_result
 
-# 将数据中心化
+
 def centralize(X):
+    """# 将数据中心化"""
     mean = np.mean(X, axis=0)
     return (X - mean)
 
@@ -36,7 +37,7 @@ def PCA_M(X, n_components=None):
     :param n_components: 需要划分成几个部分
     :return:
     第一个对象：降维之后的结果，一个矩阵
-    第二个对象：
+    第二个对象：一个只有索引
 
     """
     var_s = X.columns
@@ -61,7 +62,13 @@ def PCA_M(X, n_components=None):
     return result, var_s[indice]
 
 def get_percentage_(X, X_, model='variance'):
+    """
 
+    :param X:
+    :param X_:
+    :param model:
+    :return:
+    """
     if model == 'variance':
         X_ORI_VARIANCE = np.sum(X.apply(get_col_variance,axis=1))
         X_APP_VARIANCE = get_col_variance(np.array(X_))
@@ -71,6 +78,4 @@ def get_col_variance(X):
     row_n = X.shape[0]
     return 1/(row_n -1) * np.sum((X - np.mean(X))**2)
 
-# todo
-def var_clus(X,eigenmax=1,maxclus=None):
-    pass
+

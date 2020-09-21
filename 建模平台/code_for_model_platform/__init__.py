@@ -31,3 +31,5 @@ from .饼图 import *
 from .划分类别变量与连续变量 import *
 from .连续变量自动处理 import *
 from .可视化连续变量层级 import *
+from .varcluster import *
+from .降维 import *

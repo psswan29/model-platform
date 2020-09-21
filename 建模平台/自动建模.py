@@ -48,6 +48,8 @@ draw_heat(data_1, var_continua_analyse)
 
 # 检验连续变量相关系数
 var_cor_75_dict = tst_continu_var(data_1, var_continua_analyse)
+corr_dict, corr_, independent_var,log = tst_continu_var_1(data_1, var_continua_analyse)
+
 # 在这里由于暂时没有合适聚类算法，因此手动筛选变量
 # todo
 list_remove_1 = []
@@ -57,6 +59,12 @@ for j in var_cor_75_dict.keys():
     for j2 in var_cor_75_dict[j]:
         if j2[0] >= 0.75 and (j2[1] not in list_save):
             list_remove_1.append(j2[1])
+
+# varcluster
+demo_vc = VarClusHi(data_1[var_continua_analyse])
+demo_vc.varclus()
+print(demo_vc.info)
+print(demo_vc.rsquare)
 
 # 剔除相关系数后待分析连续变量
 var_continua_analyse_2 = [x for x in var_continua_analyse if x not in list_remove_1]
@@ -132,6 +140,8 @@ f1_result2 = f1_test_m(train['Y'], y_pred)
 print("模型的十等分：\n", model_10_splitm(model_final, train))
 
 # 预测值转化为评分卡评分
-print(transfer_score(y_pred))
+print(transfer_score(pd.DataFrame(y_pred)))
 # 模型系数转换为评分卡
 print(build_score_card(model_final.params, step_score=50))
+
+

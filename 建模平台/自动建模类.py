@@ -1,11 +1,14 @@
 # created by SHAOMING, WANG
 # on  Sep 10th, 2020
-
+#
 from code_for_model_platform import *
 from sklearn.model_selection import train_test_split
 
-# 此类为之后所有步骤的父类
+
 class Step(object):
+    """
+    # 此类为之后所有步骤的父类
+    """
     def __init__(self, input_nodes=[]):
         # 构建网络的输入节点
         self.input_nodes = input_nodes
@@ -16,7 +19,6 @@ class Step(object):
         # 训练数据集
         self.dataset = None
 
-
         # 为了创建网络结构
         for node in self.input_nodes:
             node.output_nodes.append(self)
@@ -25,10 +27,17 @@ class Step(object):
     def forward(self):
         raise NotImplementedError
 
-# 数据输入:
-# 这里需要一个可视化界面，用户可以选取建模使用的变量
+
 class Data_input(Step):
     def __init__(self, file_path,encoding,target_n,use_feature=[]):
+        """
+        # 数据输入:
+        # 这里需要一个可视化界面，用户可以选取建模使用的变量
+        :param file_path: 文件路径
+        :param encoding: 文件编码
+        :param target_n: 目标变量名称
+        :param use_feature: 使用特征
+        """
         super().__init__()
         self.file_path = file_path
         self.encoding = encoding
@@ -38,12 +47,17 @@ class Data_input(Step):
     def forward(self):
         self.dataset = pd.read_csv(self.file_path,
                                  encoding=self.encoding)
-        self.X = self.dataset[self.use_feature]
+        if not self.use_feature:
+            self.X = self.dataset
+        else:
+            self.X = self.dataset.loc[:,self.use_feature]
         self.Y = self.dataset[self.y_n]
 
 
-# 数据预处理， 包括数据清洗、建模测试集划分
 class Preprocess(Step):
+    """
+    数据预处理， 包括数据清洗、建模测试集划分
+    """
     def __init__(self, input_nodes, model='cleanup'):
         super().__init__([input_nodes])
         self.model = model
@@ -65,6 +79,11 @@ class Preprocess(Step):
         pass
 
     def __train_test_split(self, **kwargs):
+        """
+        训练集测试集划分
+        :param kwargs:
+        :return:
+        """
         if 'random_state' in kwargs.keys() and 'test_size' in kwargs.keys() and 'shuffle' in kwargs.keys():
             random_state = kwargs['random_state']
             test_size = kwargs['test_size']
@@ -88,36 +107,53 @@ class Preprocess(Step):
 class Auto_binning(Step):
     def __init__(self):
         super().__init__()
-
+    def forward(self):
+        self.X = self.input_nodes[0].X
+        self.y = self.input_nodes[0].Y
 
 # 单变量分析
 class Univariate_analysis(Step):
     def __init__(self):
         super().__init__()
     def forward(self):
-        pass
-    def backward(self):
-        pass
+        self.X = self.input_nodes[0].X
+        self.y = self.input_nodes[0].Y
 
 # 相关性检验
 class Correlation_test(Step):
+    """
+    相关性检验并降维
+    """
     def __init__(self, nodes):
+        """
+
+        :param nodes:
+        """
         super().__init__([nodes])
+
     def forward(self):
         # 画图展示相关系数热力图
-        draw_heat(data_1, var_continua_analyse)
+        self.X = self.input_nodes[0].X
+        self.y = self.input_nodes[0].Y
+
+        draw_heat(self.X, self.X.columns)
 
         # 检验连续变量相关系数
-        var_cor_75_dict = tst_continu_var(data_1, var_continua_analyse)
+        var_cor_75_dict = tst_continu_var(self.X, self.X.columns)
+
         # 在这里由于暂时没有合适聚类算法，因此手动筛选变量
         # todo
         list_remove_1 = []
         list_save = []
+
         for j in var_cor_75_dict.keys():
             list_save.append(j)
             for j2 in var_cor_75_dict[j]:
                 if j2[0] >= 0.75 and (j2[1] not in list_save):
                     list_remove_1.append(j2[1])
+
+        self.list_remove = list_remove_1
+        self.list_save = list_save
 
 
 
@@ -138,7 +174,7 @@ class Modeling(Step):
 
         self.predict_y_train = self.model.predict()
         # todo
-        self.predict_y_test = self.model.predict(self.)
+        self.predict_y_test = self.model.predict(self.X)
 
 
 
@@ -189,3 +225,6 @@ class Score_card(Step):
         print(transfer_score(self.predict_y_train))
         # 模型系数转换为评分卡
         print(build_score_card(self.model.params, step_score=50))
+
+if __name__ == '__main__':
+    pass
