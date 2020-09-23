@@ -58,8 +58,7 @@ def moto_binning(data_0, var_continu: str, y:str):
             dd_2 = np.array([list(pp_2.iloc[0]), list(pp_2.iloc[1])])
             pppp_2 = chi2_contingency(dd_2)
             output_2['>%s and <=%s'%(i_1, j_1)] = pppp_2[0]
-            new_var_dict['>%s and <=%s'%(i_1, j_1)
-             ] = ((data_1['%s'%var_continu] > i_1) & (data_1['%s'%var_continu] <= j_1)).astype(int)
+            new_var_dict['>%s and <=%s'%(i_1, j_1)] = ((data_1['%s'%var_continu] > i_1) & (data_1['%s'%var_continu] <= j_1)).astype(int)
     output_2.sort_values(ascending=False, inplace=True)
     try:
         output_2_1 = output_2.iloc[:5]
