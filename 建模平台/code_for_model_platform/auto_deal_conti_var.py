@@ -8,7 +8,7 @@ def auto_deal_continua(var_continua_analyse_2, data_1):
     var_continua_for_model: 用于建模的连续变量
      var_continua_process: 变量处理过程
     """
-    from .基于卡方连续变量自动分箱 import moto_binning
+    from .auto_bin_using_chi import moto_binning
 
 
     var_continua_for_model = []
