@@ -18,7 +18,7 @@ def model_10_split(y_pred, y_true):
                'mean':group.mean(),
                'sum':group.sum()}
 
-    data = pd.DataFrame([y_true,y_true])
+    data = pd.DataFrame([y_pred,y_true])
 
     data_sorted = data.sort_values('predict', ascending=False)
     data_sorted['rank_1'] = range(len(data_sorted))
@@ -43,11 +43,21 @@ def model_10_split(y_pred, y_true):
 
 
 def model_10_splitm(model, train, target_n='Y'):
+    """
+    模型10等分，shaoming version
+    :param model: 模型
+    :param train: 训练数据
+    :param target_n: 目标变量名称
+    :return:
+    """
+
     train['y_pred_'] = model.predict(train)
     train.sort_values(by='y_pred_', ascending=False,inplace=True)
     train.reset_index(drop=True, inplace=True)
+
     train['G'] = np.ravel([[i] * int(math.ceil(train.shape[0]/10))  for i in range(10)])
-    train_g = train.groupby(by='G').agg({'MOBILE_NUMBER':'count',
+
+    train_g = train.groupby(by='G').agg({'G':'count',
                                          target_n:['sum','mean'],
                                          'y_pred_':'mean'})
     train_g.columns = ['total_count', 'actual_target', 'actual_p', 'predict_probability']
