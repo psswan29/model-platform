@@ -8,13 +8,13 @@ def auto_deal_continua(var_continua_analyse_2, data_1):
     var_continua_for_model: 用于建模的连续变量
      var_continua_process: 变量处理过程
     """
-    from .auto_bin_using_chi import moto_binning
+    from .auto_bin_using_chi import moto_binning_chi
 
 
     var_continua_for_model = []
     var_continua_process = {}
     for j1 in var_continua_analyse_2:
-        auto_dict = moto_binning(data_1, j1, 'Y')
+        auto_dict = moto_binning_chi(data_1, j1, 'Y')
         new_col = j1 + '_1'
         data_1[new_col] = auto_dict[0]
         var_continua_process[j1] = auto_dict[1]
