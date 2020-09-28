@@ -1,6 +1,6 @@
 # 测试时间 2020年8月10日
 # 测试环境 python 3.7
-# pandas version 1.0.5
+# pandas version 1.1
 # 本文档代码为一个建模实例
 
 from code_for_model_platform import *
@@ -11,6 +11,14 @@ sns.set_style('whitegrid', {'font.sans-serif': ['simhei', 'Arial']})
 # 设置路径 读入数据,
 # 去掉各种键值，姓名、因变量
 data_1 = pd.read_csv('lucheng_data.csv', encoding='gbk')
+
+# 缺失值填补
+for col in data_1.columns:
+    if data_1[col].dtype == object:
+        data_1[col].fillna('nan', inplace=True)
+    else:
+        data_1[col].fillna(0, inplace=True)
+
 var_list = [i for i in  data_1.columns if i not in ['MOBILE_NUMBER', 'CERT_NO', 'NAME',
                                                     'INNET_DATE', 'UP_TIME','AREA_ID', 'Y']]
 
@@ -21,6 +29,7 @@ var_type_dict = judge_leibie_lianxu(data_1[var_list])
 
 # 缺失同质检验
 # 类别变量分析 仅显示存在同质性的变量
+
 # todo
 discrete_1 = discrete_variable_table(data_1, var_type_dict['discrete'])
 var_tongzhi_list_1 = discrete_variable_univar(discrete_1)
@@ -95,8 +104,8 @@ data_1['LIKE_WORK_FLAG_M1_1'] = (data_1['LIKE_WORK_FLAG_M1'] == 1).astype(int)
 
 var_discrete_for_model = ['GENDER_1', 'PAY_MODE_1', 'SERVICE_TYPE_1', 'GROUP_FLAG_1',
                           'USER_STATUS_1', 'FACTORY_DESC_1', 'DEV_CHANGE_NUM_Y1_1',
-                          'REAL_HOME_FLAG_M1_1', 'LIKE_HOME_FLAG_M1_1', 'REAL_WORK_FLAG_M1_1'
-                         ,'LIKE_WORK_FLAG_M1_1']
+                          'REAL_HOME_FLAG_M1_1', 'LIKE_HOME_FLAG_M1_1', 'REAL_WORK_FLAG_M1_1',
+                          'LIKE_WORK_FLAG_M1_1']
 
 # todo
 # 连续变量自动处理
