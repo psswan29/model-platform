@@ -38,8 +38,8 @@ def draw_heat(data_1, var_continua_analyse: list):
     mask = np.zeros_like(data_cor_h, dtype=np.bool)
     mask[np.triu_indices_from(mask)] = True
     f, ax = plt.subplots(figsize=(11, 9))
-    cmap = sns.diverging_palette(220, 10, as_cmap=True)
-    sns.heatmap(data_cor_h, mask=mask, cmap=cmap, vmax=1.0, center=0.5,
+    # cmap = sns.diverging_palette(220, 10, as_cmap=True)
+    sns.heatmap(data_cor_h, mask=mask, vmax=1.0, center=0.5,
                 square=True, linewidths=.5, cbar_kws={"shrink": .5})
     plt.show()
     return
