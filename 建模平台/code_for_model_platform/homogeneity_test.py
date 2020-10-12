@@ -42,7 +42,7 @@ def fenweishu_continuous_variable(data_1, var_list):
 def discrete_variable_univar(discrete_1):
     """
     离散变量同质分析
-    :param discrete_1:
+    :param discrete_1: 一个字典
     :return: 一个列表
     """
     var_tongzhi_list_1 = []
@@ -54,16 +54,53 @@ def discrete_variable_univar(discrete_1):
 
 def continua_variable_univar(continua_1):
     """
-    离散变量同质分析
+    连续变量同质分析
     :param continua_1:
     :return: 一个列表
     """
     var_tongzhi_list_2 = []
     for i in continua_1:
-        print(i)
+        print('同质分析:',i)
         if (continua_1[i]['estimate'].loc[11] >= 0.9) or (
                 continua_1[i]['estimate'].loc[2] == continua_1[i]['estimate'].loc[8]):
             var_tongzhi_list_2.append(i)
             print(i + '\n', continua_1[i], '\n')
 
     return var_tongzhi_list_2
+
+def homogeneity_test_m(continua_var, p=3):
+    """
+    连续变量同质分析
+    :param continua_1: 一个连续变量pandas.series
+    :param p:反应了多少个分位点
+    :return: boolean value, 是否通过同质性检验
+    """
+    # 产生21个分位点，去重之后
+    if len(set(continua_var.quantile([i * 0.01  for i in range(0,101,5)],'nearest'))) <= p:
+        return False
+    else:
+        return True
+
+def continua_variable_univar_m(dataset, continual_vars):
+    """
+    连续变量同质性分析
+
+    :param dataset:
+    :param continual_vars:
+    :return: 一个列表
+    """
+    tongzhi_vars = []
+    for col in continual_vars:
+        if not homogeneity_test_m(dataset[col]):
+            tongzhi_vars.append(col)
+
+    return tongzhi_vars
+
+
+
+
+
+
+
+
+
