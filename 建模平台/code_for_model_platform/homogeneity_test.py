@@ -4,6 +4,7 @@ import numpy as np
 # 类别变量统计
 def discrete_variable_table(data_1, variable_list):
     '''
+    返回一个离散型变量字典
     data_1:数据集
     variable_list：需要统计的变量名列表
     '''
@@ -41,8 +42,8 @@ def fenweishu_continuous_variable(data_1, var_list):
 
 def discrete_variable_univar(discrete_1):
     """
-    离散变量同质分析
-    :param discrete_1: 一个字典
+    离散变量同质分析，邓欣版本
+    :param discrete_1: 一个字典，键是变量名，值是series
     :return: 一个列表
     """
     var_tongzhi_list_1 = []
@@ -54,8 +55,8 @@ def discrete_variable_univar(discrete_1):
 
 def continua_variable_univar(continua_1):
     """
-    连续变量同质分析
-    :param continua_1:
+    连续变量同质分析，邓欣版本
+    :param continua_1: 一个字典：键是变量名，值是series
     :return: 一个列表
     """
     var_tongzhi_list_2 = []
@@ -70,7 +71,7 @@ def continua_variable_univar(continua_1):
 
 def homogeneity_test_m(continua_var, p=3):
     """
-    连续变量同质分析
+    连续变量同质分析，王绍明版本
     :param continua_1: 一个连续变量pandas.series
     :param p:反应了多少个分位点
     :return: boolean value, 是否通过同质性检验
@@ -83,10 +84,10 @@ def homogeneity_test_m(continua_var, p=3):
 
 def continua_variable_univar_m(dataset, continual_vars):
     """
-    连续变量同质性分析
+    连续变量同质性分析，王绍明版本
 
-    :param dataset:
-    :param continual_vars:
+    :param dataset: 原数据集
+    :param continual_vars: 需要进行检验的连续变量
     :return: 一个列表
     """
     tongzhi_vars = []

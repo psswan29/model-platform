@@ -8,30 +8,94 @@ from sklearn.model_selection import train_test_split
 
 sns.set_style('whitegrid', {'font.sans-serif': ['simhei', 'Arial']})
 
-# 设置路径 读入数据,
-# 去掉各种键值，姓名、因变量
+# 1.数据导入
+# 建模平台中的数据导入方法是基于pandas读取csv格式数据的
+# 类似于sas中data步骤的infile 方法
+# delimiter选项, 类似于 dlm 参数
+# encoding选项，类似于encoding
+# 设置路径 读入数据, 设置编码格式
+# 去掉姓名、因变量
 data_1 = pd.read_csv('lucheng_data.csv', encoding='gbk')
 
-# 缺失值填补
+# 2.数据预处理
+# 缺失值填补，这里使用了一个循环进行缺失值的批量处理
+# 遍历所有变量名
 for col in data_1.columns:
+    # 如果变量类型为离散型，则填补缺失值为‘nan’
     if data_1[col].dtype == object:
         data_1[col].fillna('nan', inplace=True)
+    # 否则为连续型，直接补零
     else:
         data_1[col].fillna(0, inplace=True)
 
+# 手动删除变量
 var_list = [i for i in  data_1.columns if i not in ['MOBILE_NUMBER', 'CERT_NO', 'NAME',
                                                     'INNET_DATE', 'UP_TIME','AREA_ID', 'Y']]
 
 # 划分类别变量与连续变量
-# todo
 # var_type_dict = divide_cat_con_var(data_1, var_list)
 var_type_dict = judge_leibie_lianxu(data_1[var_list])
 
+var_discrete = ['CERT_TYPE',
+ 'GENDER',
+ 'PAY_MODE',
+ 'SERVICE_TYPE',
+ 'GROUP_FLAG',
+ 'USER_STATUS',
+ 'INTER_LONG_FEE_FIRST',
+ 'INTER_LONG_FEE_SECOND',
+ 'INTER_LONG_FEE_THIRD',
+ 'FACTORY_DESC',
+ 'DEV_CHANGE_NUM_Y1',
+ 'WEIXIN_APP_NUM_M1',
+ 'WX_ACTIVE_MAX_DAYS_M1',
+ 'GOUWU_APP_NUM_M1',
+ 'GW_ACTIVE_MAX_DAYS_M1',
+ 'SJYH_APP_NUM_M1',
+ 'SJYH_ACTIVE_MAX_DAYS_M1',
+ 'WAIMAI_APP_NUM_M1',
+ 'WM_ACTIVE_MAX_DAYS_M1',
+ 'REAL_HOME_FLAG_M1',
+ 'LIKE_HOME_FLAG_M1',
+ 'REAL_WORK_FLAG_M1',
+ 'LIKE_WORK_FLAG_M1',
+ 'MONTH_ID']
+
+var_continual =['AGE',
+'STOP_MONTH',
+'OUT_INTERROAM_NUM_M1',
+'IN_INTERROAM_NUM_M1',
+'OUT_INTERLONG_NUM_M1',
+ 'TOTAL_FEE_FIRST',
+ 'OUT_FLUX_FEE_FIRST',
+ 'OUT_CALL_FEE_FIRST',
+ 'INCR_FEE_FIRST',
+ 'TOTAL_FEE_SECOND',
+ 'OUT_FLUX_FEE_SECOND',
+ 'OUT_CALL_FEE_SECOND',
+ 'TOTAL_FEE_THIRD',
+ 'OUT_FLUX_FEE_THIRD',
+ 'OUT_CALL_FEE_THIRD',
+ 'OUT_DURA_M1',
+ 'OUT_NUM_M1',
+ 'IN_DURA_M1',
+ 'IN_NUM_M1',
+ 'OUT_COUNROAM_NUM_M1',
+ 'IN_COUNROAM_NUM_M1',
+ 'OUT_COUNLONG_NUM_M1',
+ 'TOTAL_FLUX_M1',
+ 'FREE_FLUX_M1',
+ 'BILL_FLUX_M1',
+ 'WX_VISIT_CNT_M1',
+ 'GW_VISIT_CNT_M1',
+ 'SJYH_VISIT_CNT_M1',
+ 'WM_VISIT_CNT_M1',
+ 'daikuan_app_num_m3',
+ 'ST_NUM_M1']
+
 # 缺失同质检验
 # 类别变量分析 仅显示存在同质性的变量
-
-# todo
-discrete_1 = discrete_variable_table(data_1, var_type_dict['discrete'])
+discrete_1 = discrete_variable_table(data_1, var_discrete)
 var_tongzhi_list_1 = discrete_variable_univar(discrete_1)
 
 # 类别变量分布情况
@@ -41,16 +105,19 @@ for ii in discrete_1:
     pie_drawing(vals, labels, ii)
 
 # 剔除同质待分析的类别变量
-var_discrete_analyse = [x for x in var_type_dict['discrete'] if x not in var_tongzhi_list_1]
+var_discrete_analyse = [x for x in var_discrete if x not in var_tongzhi_list_1]
 
-# 连续变量同质分析
-continua_1 = fenweishu_continuous_variable(data_1, var_type_dict['continua'])
-var_tongzhi_list_2 = continua_variable_univar(continua_1)
+
+# todo 连续变量同质分析, 将缺失值占比
+# continua_1 = fenweishu_continuous_variable(data_1, var_continual)
+# var_tongzhi_list_2 = continua_variable_univar(continua_1)
+
+var_tongzhi_list_2 = continua_variable_univar_m(data_1, var_continual)
 
 # 可视化连续变量层级
 visualize_continua_var_layers(var_type_dict, data_1)
 # 剔除同质待分析的连续变量
-var_continua_analyse = [x for x in var_type_dict['continua'] if x not in var_tongzhi_list_2]
+var_continua_analyse = [x for x in var_continual if x not in var_tongzhi_list_2]
 
 # 画图展示相关系数热力图
 draw_heat(data_1, var_continua_analyse)
@@ -68,6 +135,9 @@ for j in var_cor_75_dict.keys():
     for j2 in var_cor_75_dict[j]:
         if j2[0] >= 0.75 and (j2[1] not in list_save):
             list_remove_1.append(j2[1])
+
+for var in list_remove_1:
+    print('var %s is deleted because of correlation test' % var)
 
 # varcluster
 demo_vc = VarClusHi(data_1[var_continua_analyse])

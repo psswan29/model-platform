@@ -82,17 +82,20 @@ def bin_using_ks(var_continuous, y, threshold=0.05):
 
     def bin_using_ks_(var_len, var_continuous, y, log, threshold):
         """
-        使用递归的方法分箱
+        使用递归的方法分箱内部方法
         :param var_len: 要分箱的连续变量初始长度
         :param var_continu: 每次迭代要分箱的连续变量数据
         :param y: 每次迭代因变量数据
         :return:
 
-        终止条件
+        递归终止条件
 
         1.下一步分箱后,最小的箱的占比低于设定的阈值(threshold常用0.05)
         2.下一步分箱后,该箱对应的y类别全部为0或者1
         3.下一步分箱后,因变量反馈率不单调
+
+        缺点
+        不能用于多分类问题
 
         """
 
@@ -101,7 +104,7 @@ def bin_using_ks(var_continuous, y, threshold=0.05):
         var_continuous = pd.DataFrame(var_continuous).values.reshape(-1,)
         y = pd.DataFrame(y).values.reshape(-1,)
         assert var_continuous.shape == y.shape
-        # 检验
+        # 正负样本比例检验
         if ((y == 1).sum()/var_len < threshold) or ((y ==0).sum()/var_len < threshold):
             raise ImportError
 
@@ -156,13 +159,21 @@ def bin_using_ks(var_continuous, y, threshold=0.05):
     return log
 
 
-
-
 from scipy.stats import ks_2samp
 def get_ks(y_pred,y_true):
     #y_pred 目标变量预测值 y_true 目标变量真实值
     get_ks1 = ks_2samp(y_pred[y_true==1], y_pred[y_true!=1]).statistic
     return get_ks1
+
+def chi_merge_base(data_0, var_continu: str, y:str):
+    # 基于卡方检验,最原始的卡方分箱法
+    # 首先定义一个阈值 threshold
+    # 第一步，初始化，根据要离散的变量，对实例进行排序：每个实例属于一个区间
+    # 第二步，合并区间
+    # 计算每一对之间的chi square value
+    # 将chi square value 最小的两个区间合并
+
+    pass
 
 
 if __name__ == '__main__':
