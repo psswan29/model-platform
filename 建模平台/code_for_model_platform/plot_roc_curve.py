@@ -67,12 +67,12 @@ def cross_table(var, y, tie=20):
             sum1 = sum1 + 100 * array_y[i] / n
             accu1 = accu1 + [sum1]
     grouped["数量累积占比(%)"] = accu1
-    plot_roc_curve(grouped)
+    plt_roc_curve(grouped)
 
     # print(grouped)
     return grouped
 
-def plot_roc_curve(grouped):
+def plt_roc_curve(grouped):
     # 绘制洛伦兹曲线
     plt.plot(grouped["数量累积占比(%)"], grouped["数量累积占比(%)"], label="未使用模型")
     plt.plot(grouped["数量累积占比(%)"], grouped["Y=1累积占比(%)"], label="使用模型")
