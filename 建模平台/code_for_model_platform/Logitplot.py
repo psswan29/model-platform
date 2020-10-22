@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def drawing(data_tt,X1,Y1, N=20, max_f=None,min_f=None, DF=False):
+def drawing(data_tt,X1,Y1, N=20, max_f=None,min_f=None, DF=False, skip=None):
     '''
     data_tt:数据集
     X1:因变量
@@ -71,26 +71,43 @@ def drawing(data_tt,X1,Y1, N=20, max_f=None,min_f=None, DF=False):
        #   print(temp3.iat[l, 5])
         grouped = pd.DataFrame(index=np.unique(temp3['RK']))
         #print(np.unique(temp3['RK']))
-        grouped["min"] = temp3.groupby(temp3["RK"])['x'].apply(lambda a: min(a))  # 每层最小观测值
-        grouped["max"] = temp3.groupby(temp3["RK"])['x'].apply(lambda a: max(a))  # 每层最大观测值
-        grouped["mean"] = temp3.groupby(temp3["RK"])['x'].mean()  # 每层测值均值
-        grouped["p"] = temp3.groupby(temp3["RK"])['y'].mean()  # 每层y=1占比
-        grouped["freq"] = temp3.groupby(temp3["RK"])['x'].count()  # 每层观测数
-        grouped["logit"] = np.log(grouped["p"] / (1 - grouped["p"]))  # logit
-        grouped["elogit"] = np.log((grouped["p"] + 1 / np.sqrt(2 * grouped["freq"])) / (
-        1 - grouped["p"] + 1 / np.sqrt(2 * grouped["freq"])))  # elogit
+        # 每层最小观测值
+        grouped["min"] = temp3.groupby(temp3["RK"])['x'].apply(lambda a: min(a))
+        # 每层最大观测值
+        grouped["max"] = temp3.groupby(temp3["RK"])['x'].apply(lambda a: max(a))
+        # 每层测值均值
+        grouped["mean"] = temp3.groupby(temp3["RK"])['x'].mean()
+        # 每层y=1占比
+        grouped["p"] = temp3.groupby(temp3["RK"])['y'].mean()
+        # 每层观测数
+        grouped["freq"] = temp3.groupby(temp3["RK"])['x'].count()
+        # logit
+        grouped["logit"] = np.log(grouped["p"] / (1 - grouped["p"]))
+        # elogit
+        grouped["elogit"] = np.log(
+            (grouped["p"] + 1 / np.sqrt(2 * grouped["freq"]))
+            / (1 - grouped["p"] + 1 / np.sqrt(2 * grouped["freq"]))
+        )
     elif DF == True:
         temp3['rank_1'] = range(len(temp3))
-        temp3['RK'] = pd.qcut(temp3.rank_1, group, labels=False) # 将data_sorted.rank_1分成20fen(0-19)
+        # 将data_sorted.rank_1分成20fen(0-19)
+        temp3['RK'] = pd.qcut(temp3.rank_1, group, labels=False)
         grouped = pd.DataFrame(index=np.unique(temp3['RK']))
-        grouped["min"] = temp3.groupby(temp3['RK'])['x'].apply(lambda a: min(a))  # 每层最小观测值
-        grouped["max"] = temp3.groupby(temp3['RK'])['x'].apply(lambda a: max(a))  # 每层最大观测值
-        grouped["mean"] = temp3.groupby(temp3['RK'])['x'].mean()  # 每层测值均值
-        grouped["p"] = temp3.groupby(temp3['RK'])['y'].mean()  # 每层y=1占比
-        grouped["freq"] = temp3.groupby(temp3['RK'])['x'].count()  # 每层观测数
-        grouped["logit"] = np.log(grouped["p"] / (1 - grouped["p"]))  # logit
+        # 每层最小观测值
+        grouped["min"] = temp3.groupby(temp3['RK'])['x'].apply(lambda a: min(a))
+        # 每层最大观测值
+        grouped["max"] = temp3.groupby(temp3['RK'])['x'].apply(lambda a: max(a))
+        # 每层测值均值
+        grouped["mean"] = temp3.groupby(temp3['RK'])['x'].mean()
+        # 每层y=1占比
+        grouped["p"] = temp3.groupby(temp3['RK'])['y'].mean()
+        # 每层观测数
+        grouped["freq"] = temp3.groupby(temp3['RK'])['x'].count()
+        # logit
+        grouped["logit"] = np.log(grouped["p"] / (1 - grouped["p"]))
+        # elogit
         grouped["elogit"] = np.log((grouped["p"] + 1 / np.sqrt(2 * grouped["freq"])) / (
-        1 - grouped["p"] + 1 / np.sqrt(2 * grouped["freq"])))  # elogit
+        1 - grouped["p"] + 1 / np.sqrt(2 * grouped["freq"])))
     else:
         print('请确定您所输入的DF值是否为True或False！')
 
@@ -104,11 +121,19 @@ def drawing(data_tt,X1,Y1, N=20, max_f=None,min_f=None, DF=False):
     plt.legend()
     plt.show()
     '''
-    sns.lmplot(x="mean", y="logit", data=grouped,fit_reg=False)
-    plt.title(X1 + '_LOGIT')
-    plt.show()
-    sns.lmplot(x="mean", y="elogit", data=grouped,fit_reg=False)    
-    plt.title(X1 + '_ELOGIT')
-    plt.show()
+    if not skip:
+        sns.lmplot(x="mean", y="logit", data=grouped[:],fit_reg=False)
+        plt.title(X1 + '_LOGIT')
+        plt.show()
+        sns.lmplot(x="mean", y="elogit", data=grouped,fit_reg=False)
+        plt.title(X1 + '_ELOGIT')
+        plt.show()
+    else:
+        sns.lmplot(x="mean", y="logit", data=grouped[:-skip],fit_reg=False)
+        plt.title(X1 + '_LOGIT')
+        plt.show()
+        sns.lmplot(x="mean", y="elogit", data=grouped[:-skip],fit_reg=False)
+        plt.title(X1 + '_ELOGIT')
+        plt.show()
     print("")
     return grouped
