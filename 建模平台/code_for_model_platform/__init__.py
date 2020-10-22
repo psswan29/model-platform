@@ -13,12 +13,11 @@ from .cross_table import *
 from .divide_dataset import *
 from .drop_duplicate import *
 from .var_transfer import *
-# from .auto_bin_using_chi import *
 from .balance_sample import *
 from .modeling import *
 from .sort import *
 from .ten_split import *
-from .roc_curve import *
+from .plot_roc_curve import  *
 from .corr_test import *
 from .dengfentable import *
 from .homogeneity_test import *
@@ -29,7 +28,7 @@ from .score_card import *
 from .F1test import *
 from .pie_plot import *
 from .divide_cate_var_conti_var import *
-from .auto_deal_conti_var import *
 from .visualize_layers import *
 from .varcluster import *
 from .decomposition import *
+from .auto_bin_using_chi import *

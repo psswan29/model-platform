@@ -1,7 +1,6 @@
 #roc曲线和auc值
 from sklearn.metrics import roc_curve, auc
-import matplotlib.pyplot as plt 
-from scipy.stats import ks_2samp
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
