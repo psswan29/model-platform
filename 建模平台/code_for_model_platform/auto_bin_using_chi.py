@@ -15,22 +15,25 @@ from scipy.stats import chi2_contingency
 from multiprocessing import Pool
 
 
-def auto_deal_continua(var_continua_analyse_2, data_1):
+def auto_deal_continua(var_continua_analyse_2, data_1, bin_method='chisquare'):
     """
     # 连续变量自动处理
-    :param var_continua_analyse_2:
-    :param data_1:
+    :param var_continua_analyse_2: 连续变量名
+    :param data_1: 数据源
     :return:
     var_continua_for_model: 用于建模的连续变量
      var_continua_process: 变量处理过程
     """
-
+    # 初始化环境
     var_continua_for_model = []
     var_continua_process = {}
+    if bin_method == 'chisquare':
+        bin_func = moto_binning_chi
+
 
     # 使用一个进程池来运行分箱算法
     with Pool(5) as p:
-        bin_result_list = p.starmap(moto_binning_chi, [(data_1, col, 'Y') for col in var_continua_analyse_2])
+        bin_result_list = p.starmap(bin_func, [(data_1, col, 'Y') for col in var_continua_analyse_2])
 
     for var, t in zip(var_continua_analyse_2, bin_result_list):
         new_var_final, ix = t
