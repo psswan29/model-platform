@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # 手动删除变量
     # 去掉姓名、因变量
     var_list = [i for i in  data_1.columns if i not in ['MOBILE_NUMBER', 'CERT_NO', 'NAME',
-                                                        'INNET_DATE', 'UP_TIME','AREA_ID', 'Y']]
+                                                        'INNET_DATE', 'UP_TIME', 'Y']]
 
     # 提供一种自动划分类别变量与连续变量的方法
     # 虽然不是非常准确，但能减轻工作量
@@ -35,8 +35,15 @@ if __name__ == '__main__':
     # var_type_dict = divide_cat_con_var(data_1, var_list)
     var_type_dict = judge_leibie_lianxu(data_1[var_list])
 
+
+    import datetime
+
+    data_1['INNET_days'] = ((datetime.datetime(2020, 10, 28) - pd.to_datetime(data_1['INNET_DATE'],
+                                                                              format='%m/%d/%Y')).dt.days // 30).astype(int)
+
     # 手动划分类别变量以及连续性变量
     var_discrete = ['CERT_TYPE',
+                    'AREA_ID',
      'GENDER',
      'PAY_MODE',
      'SERVICE_TYPE',
@@ -62,6 +69,7 @@ if __name__ == '__main__':
      'MONTH_ID']
 
     var_continual =['AGE',
+                    'INNET_days',
     'STOP_MONTH',
     'OUT_INTERROAM_NUM_M1',
     'IN_INTERROAM_NUM_M1',

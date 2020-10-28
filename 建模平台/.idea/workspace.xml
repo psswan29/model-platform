@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28e51aee-c105-4ec9-9c51-8f786967adc3" name="Default Changelist" comment="change file name into English">
-      <change beforePath="$PROJECT_DIR$/../test.txt" beforeDir="false" />
+    <list default="true" id="28e51aee-c105-4ec9-9c51-8f786967adc3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/code_for_model_platform/date_time_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/10split.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/code_for_model_platform/WOE.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/WOE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/auto_bin_using_chi.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/auto_bin_using_chi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code_for_model_platform/homogeneity_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/code_for_model_platform/homogeneity_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/modeling_platform-1.0.win-amd64.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/modeling_platform-1.0.win-amd64.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_for_model_platform/auto_deal_conti_var.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code_for_model_platform/roc_curve.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/自动建模.py" beforeDir="false" afterPath="$PROJECT_DIR$/自动建模.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,32 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/自动建模.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="199" lean-forward="true" selection-start-line="199" selection-end-line="199" />
-              <folding>
-                <element signature="e#73#110#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/auto_deal_conti_var.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code_for_model_platform/auto_bin_using_chi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2010">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="587">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="e#140#173#0" expanded="true" />
               </folding>
@@ -69,44 +46,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/corr_test.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/自动建模.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="46" column="19" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/visualize_layers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+            <state relative-caret-position="570">
+              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#89#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/homogeneity_test.py">
+        <entry file="file://$PROJECT_DIR$/code_for_model_platform/date_time_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="71" selection-start-line="71" selection-end-line="97" selection-end-column="23" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_for_model_platform/divide_cate_var_conti_var.py">
+        <entry file="file://F:/anaconda/Lib/site-packages/pandas/core/arrays/datetimes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+            <state relative-caret-position="161">
+              <caret line="1841" selection-start-line="1841" selection-end-line="1841" />
             </state>
           </provider>
         </entry>
@@ -129,6 +97,11 @@
       <find>占比</find>
       <find>ic</find>
       <find>PCA_M</find>
+      <find>y_pred</find>
+      <find>roc</find>
+      <find>y_type</find>
+      <find>roc_auc_gini</find>
+      <find>_map_async</find>
     </findStrings>
     <replaceStrings>
       <replace>Value</replace>
@@ -163,7 +136,6 @@
         <option value="$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/变量函数转换.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/test.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/洛伦兹曲线.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/建立评分卡.py" />
@@ -175,15 +147,20 @@
         <option value="$PROJECT_DIR$/code_for_model_platform/相关性检验.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/降维.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/KS值.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/__init__.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/ten_split.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/auto_deal_conti_var.py" />
         <option value="$PROJECT_DIR$/setup.cfg" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/corr_test.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/auto_bin_using_chi.py" />
-        <option value="$PROJECT_DIR$/code_for_model_platform/WOE.py" />
         <option value="$PROJECT_DIR$/code_for_model_platform/homogeneity_test.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/AUC_GINI_KS.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/plot_roc_curve.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/auto_deal_conti_var.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/__init__.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/Logitplot.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/WOE.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/test.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/auto_bin_using_chi.py" />
+        <option value="$PROJECT_DIR$/code_for_model_platform/date_time_process.py" />
         <option value="$PROJECT_DIR$/自动建模.py" />
       </list>
     </option>
@@ -248,6 +225,9 @@
       <module name="建模平台" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -411,6 +391,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="建模平台" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code_for_model_platform" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code_for_model_platform/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="varcluster" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="建模平台" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -438,14 +440,15 @@
       <item itemvalue="Python.setup" />
       <item itemvalue="Python.varcluster" />
       <item itemvalue="Python.自动建模" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.自动建模" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.自动建模" />
+        <item itemvalue="Python.自动建模" />
         <item itemvalue="Python.setup" />
-        <item itemvalue="Python.varcluster" />
-        <item itemvalue="Python.自动建模" />
-        <item itemvalue="Python.自动建模" />
       </list>
     </recent_temporary>
   </component>
@@ -523,14 +526,18 @@
       <workItem from="1602464918278" duration="12494000" />
       <workItem from="1602551221113" duration="7979000" />
       <workItem from="1602642236777" duration="2372000" />
-      <workItem from="1602815089998" duration="15668000" />
-    </task>
-    <task id="LOCAL-00001" summary="test of commit">
-      <created>1598234214270</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1598234214270</updated>
+      <workItem from="1602815089998" duration="16433000" />
+      <workItem from="1603087263010" duration="13758000" />
+      <workItem from="1603159024312" duration="1874000" />
+      <workItem from="1603244888945" duration="1788000" />
+      <workItem from="1603331644670" duration="19153000" />
+      <workItem from="1603417984126" duration="8641000" />
+      <workItem from="1603434230673" duration="4805000" />
+      <workItem from="1603447494464" duration="1526000" />
+      <workItem from="1603678824825" duration="6647000" />
+      <workItem from="1603695474133" duration="6505000" />
+      <workItem from="1603777437681" duration="5325000" />
+      <workItem from="1603871330161" duration="9039000" />
     </task>
     <task id="LOCAL-00002" summary="test of commit">
       <created>1598493883915</created>
@@ -826,11 +833,60 @@
       <option name="project" value="LOCAL" />
       <updated>1602472119765</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="add more detail about auto-bin">
+      <created>1602841033731</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1602841033731</updated>
+    </task>
+    <task id="LOCAL-00045" summary="change the name of roc_curve.py to plot_roc_curve.py">
+      <created>1603095789302</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1603095789302</updated>
+    </task>
+    <task id="LOCAL-00046" summary="plot_roc_curve 2 plt_roc_curve">
+      <created>1603099029933</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1603099029933</updated>
+    </task>
+    <task id="LOCAL-00047" summary="adjust details of auto_bin_using_chi">
+      <created>1603332755354</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1603332755354</updated>
+    </task>
+    <task id="LOCAL-00048" summary="add  one new option to drawing function, which enables it to skip several number of tailing nodes when bubble plotting.">
+      <created>1603360982258</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1603360982258</updated>
+    </task>
+    <task id="LOCAL-00049" summary="optimize the performance of auto-bin algorithm using multi-processing pool; after optimization, it takes only 73 seconds compared with 300 seconds before.">
+      <created>1603701241014</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1603701241014</updated>
+    </task>
+    <task id="LOCAL-00050" summary="optimize the performance of auto-bin algorithm using multi-processing pool; after optimization, it takes only 73 seconds compared with 300 seconds before.">
+      <created>1603784027804</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1603784027805</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="419670000" />
+    <option name="totallyTimeSpent" value="499496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,14 +899,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1488" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.41379312" visible="true" weight="0.29055008" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.41379312" visible="true" weight="0.24259521" />
       <window_info id="Structure" order="1" sideWeight="0.5862069" side_tool="true" weight="0.438646" />
       <window_info id="Favorites" order="2" sideWeight="0.5862069" side_tool="true" weight="0.438646" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.41086352" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.35506243" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2892907" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43871868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.26740947" />
@@ -858,14 +915,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.2896936" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50070524" side_tool="true" weight="0.2632312" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2339833" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4992948" visible="true" weight="0.16016713" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.09331477" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" sideWeight="0.4992948" visible="true" weight="0.31476322" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="236" y="190" width="1001" height="484" id="SciView" order="3" sideWeight="0.35323384" visible="true" weight="0.27997178" />
+      <window_info anchor="right" x="236" y="190" width="1001" height="484" id="SciView" order="3" sideWeight="0.56504065" visible="true" weight="0.16361073" />
       <window_info anchor="right" id="Database" order="4" weight="0.3293371" />
-      <window_info anchor="right" x="0" y="0" width="322" height="678" id="Documentation" order="5" sideWeight="0.6467662" side_tool="true" visible="true" weight="0.27997178" />
+      <window_info anchor="right" x="0" y="0" width="322" height="678" id="Documentation" order="5" sideWeight="0.43495935" side_tool="true" visible="true" weight="0.16361073" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -924,11 +981,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test of commit" />
-    <MESSAGE value="20200827 commit" />
-    <MESSAGE value="ADD A NEW CROSS_TABLE CREATING FUNCION FINISHED BY SHAOMING" />
-    <MESSAGE value="modify some details" />
-    <MESSAGE value="fix the bugs of Deng's Version" />
     <MESSAGE value="add more new functions in the domain of feature decomposition: PCA_M" />
     <MESSAGE value="20200911 18:08" />
     <MESSAGE value=" backwise_selection and add more detailed comments" />
@@ -948,98 +1000,95 @@
     <MESSAGE value="add more details to setup file, install_requires option" />
     <MESSAGE value="adjust function of draw_heat" />
     <MESSAGE value="add two new homogeneity_functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="add two new homogeneity_functions" />
+    <MESSAGE value="add more detail about auto-bin" />
+    <MESSAGE value="change the name of roc_curve.py to plot_roc_curve.py" />
+    <MESSAGE value="plot_roc_curve 2 plt_roc_curve" />
+    <MESSAGE value="adjust details of auto_bin_using_chi" />
+    <MESSAGE value="add  one new option to drawing function, which enables it to skip several number of tailing nodes when bubble plotting." />
+    <MESSAGE value="optimize the performance of auto-bin algorithm using multi-processing pool; after optimization, it takes only 73 seconds compared with 300 seconds before." />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize the performance of auto-bin algorithm using multi-processing pool; after optimization, it takes only 73 seconds compared with 300 seconds before." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>97</line>
+          <line>105</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>101</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>125</line>
+          <line>132</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>122</line>
+          <line>129</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>174</line>
+          <line>192</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>162</line>
+          <line>180</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>181</line>
+          <line>198</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/自动建模.py</url>
-          <line>197</line>
+          <line>215</line>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/自动建模.py</url>
+          <line>222</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/自动建模.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/自动建模.py</url>
+          <line>147</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/自动建模.py</url>
+          <line>159</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/code_for_model_platform/Logitplot.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/code_for_model_platform/Logitplot.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/自动建模.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/$.coverage" NAME="自动建模 Coverage Results" MODIFIED="1597743684016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/$.coverage" NAME="自动建模 Coverage Results" MODIFIED="1603875355707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1596695060162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code_for_model_platform" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/连续变量自动处理.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建立评分卡.py" />
-    <entry file="file://F:/anaconda/Lib/site-packages/numpy/lib/function_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="2268" column="14" lean-forward="true" selection-start-line="2268" selection-start-column="14" selection-end-line="2268" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/anaconda/Lib/site-packages/numpy/linalg/linalg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="1201" lean-forward="true" selection-start-line="1201" selection-end-line="1201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/build-neural-network/dnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/Logit图.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/建模.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/交叉列联表.py" />
-    <entry file="file://F:/anaconda/Lib/site-packages/sklearn/model_selection/_split.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="2013" column="13" selection-start-line="2013" selection-start-column="4" selection-end-line="2013" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/检验十等分.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/划分数据集.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/去重.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/饼图.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/平衡样本.py" />
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/基于卡方连续变量自动分箱.py" />
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/可视化连续变量层级.py" />
     <entry file="file://F:/anaconda/Lib/site-packages/numpy/core/_methods.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1068,44 +1117,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/roc_curve.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/cal_similarity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/ten_split.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="63" column="18" lean-forward="true" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
-          <folding>
-            <element signature="e#131#150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/decomposition.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="44" column="22" lean-forward="true" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/AUC_GINI_KS.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="32" selection-end-column="18" />
-          <folding>
-            <element signature="e#12#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1137,48 +1154,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/F1test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/fill_na_value.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-191" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/WOE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/anaconda/Lib/site-packages/pandas/io/parsers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="625" column="32" lean-forward="true" selection-start-line="625" selection-start-column="12" selection-end-line="625" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/deprive_continuous_var.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/divide_cate_var_conti_var.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1189,15 +1168,189 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/homogeneity_test.py">
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/cross_table.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="71" selection-start-line="71" selection-end-line="97" selection-end-column="23" />
+        <state relative-caret-position="45">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/scipy/stats/contingency.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="111" column="4" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/F1test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/score_card.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/sklearn/model_selection/_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1997" column="4" selection-start-line="1997" selection-start-column="4" selection-end-line="1997" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/ten_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="63" column="18" lean-forward="true" selection-start-line="43" selection-end-line="63" selection-end-column="18" />
+          <folding>
+            <element signature="e#131#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/roc_curve.py" />
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/plot_roc_curve.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="69" column="6" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/AUC_GINI_KS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#12#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/auto_deal_conti_var.py" />
+    <entry file="file://F:/anaconda/Lib/site-packages/sklearn/metrics/ranking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="394" column="29" lean-forward="true" selection-start-line="394" selection-start-column="29" selection-end-line="394" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/GINI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding>
+            <element signature="e#6#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/dengfentable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/deprive_continuous_var.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/corr_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/fill_na_value.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-282" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/WOE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/balance_sample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+          <folding>
+            <element signature="e#9#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/anaconda/Lib/multiprocessing/pool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="274" column="11" lean-forward="true" selection-start-line="274" selection-start-column="11" selection-end-line="274" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/homogeneity_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="97" column="23" lean-forward="true" selection-start-line="70" selection-end-line="97" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/divide_cate_var_conti_var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="36" selection-start-line="36" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/deprive_cate_varr.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/cal_similarity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/modeling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/KSvalue.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/visualize_layers.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1209,27 +1362,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/corr_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="46" column="19" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/varcluster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="173">
+          <caret line="13" column="15" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="15" />
           <folding>
             <element signature="e#133#152#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/cross_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1240,29 +1379,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://F:/anaconda/Lib/site-packages/pandas/core/arrays/datetimes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="1841" selection-start-line="1841" selection-end-line="1841" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code_for_model_platform/auto_bin_using_chi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2010">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="587">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#140#173#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_for_model_platform/auto_deal_conti_var.py">
+    <entry file="file://$PROJECT_DIR$/code_for_model_platform/date_time_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/自动建模.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="199" lean-forward="true" selection-start-line="199" selection-end-line="199" />
+        <state relative-caret-position="570">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
           <folding>
-            <element signature="e#73#110#0" expanded="true" />
+            <element signature="e#89#126#0" expanded="true" />
           </folding>
         </state>
       </provider>
