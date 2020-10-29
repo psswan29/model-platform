@@ -80,7 +80,7 @@ def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
         # 若在日志当中，直接跳过
         # 否则加载在日志当中
         if var_name in log: return
-        log.append(var_name)
+        log += list(corr_dict[var_name])
 
         if not corr_dict[var_name]:
             independent_var.append(var_name)
@@ -104,7 +104,7 @@ def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
     return corr_dict, corr_, independent_var,log
 
 
-def generate_corr_dict(data_1,var_continua_analyse, corr_rate):
+def generate_corr_dict(data_1,var_continua_analyse, corr_rate=0.75):
     """
     生成相关性检验字典
     :param data_1:  数据源
@@ -113,9 +113,14 @@ def generate_corr_dict(data_1,var_continua_analyse, corr_rate):
     :return: 一个记录相关性检验结果的字典
     """
     c = data_1[var_continua_analyse].corr()
+
     c = np.abs(c)
+
     c1 = (c > corr_rate)
+
     corr_dict = {}
+
     for col in c1.columns:
         corr_dict[col] = [item for item in c1.index[c1[col]] if item != col]
     return corr_dict
+
