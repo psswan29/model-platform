@@ -48,3 +48,39 @@ def missing_tb(data_1, var: str, fill='None'):
         #print('变量：',var,' 用特殊值',fill, '填补')
         data_2 = data_1.fillna({var:fill})
     return data_2
+
+def na_process(data_1, var_discrete, var_continual,fill_value_discrete='nan', fill_value_continual=0):
+    """
+    缺失值填补，这里使用了一个循环进行缺失值的批量处理
+    :param data_1:  源数据
+    :param var_discrete:  一个列表，包含所有类别变量
+    :param var_continual:  一个列表， 包含所有连续性变量
+    :param fill_value_discrete: 类别变量缺失所填的值
+    :param fill_value_continual: 连续变量缺失所填的值默认为0，可以是后项值（'bfill','backfill'），
+                                前向值（'ffill'）
+    :return:
+    一份处理后的dataframe
+    """
+    data_copy = data_1.copy()
+    # 遍历所有变量名
+    for col in data_copy.columns:
+
+        # 如果变量类型为离散型，则填补缺失值为‘nan’
+        if var_discrete and  col in var_discrete:
+            data_copy[col].fillna(fill_value_discrete, inplace=True)
+
+        # 否则为连续型，直接补零
+        elif var_continual and col in var_continual:
+
+            # 强制转换为数值型
+            data_copy[col] = data_copy[col].astype(float)
+            # 后项值
+            if fill_value_continual in ['bfill','backfill']:
+                data_copy[col].backfill(axis=None, inplace=True, limit=None, downcast=None)
+            #前向值
+            elif fill_value_continual == 'ffill':
+                data_copy[col].ffill(axis=None, inplace=True, limit=None, downcast=None)
+            else:
+                data_copy[col].fillna(fill_value_continual, inplace=True)
+
+    return data_copy
