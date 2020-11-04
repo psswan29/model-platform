@@ -117,7 +117,7 @@ def stepwise_selection(train: pd.DataFrame,
         print('this is the {} time iteration'.format(iter_num))
         iter_num += 1
         changed = False
-        # forward step
+
         excluded = cols - included
         new_chival = {}
 
@@ -156,6 +156,7 @@ def stepwise_selection(train: pd.DataFrame,
                 print('Drop {:30} with chi-square: {:.6}'.format(worst_feature, worst_chival))
         if not changed:
             break
+
     result = build_logistic_model(y_n, included, train)
 
     return result
