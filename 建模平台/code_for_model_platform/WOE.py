@@ -8,14 +8,26 @@ def WOE_IV_encoding(df, col, target):
     :param target: 目标变量
     :return: 一个字典
     """
-    total = df.groupby([col]).agg({target:['count', 'sum']})
-    total.columns = ['total', 'target']
+    total = df.groupby([col])[target].count()
+    total = pd.DataFrame({'total': total})
+    bad = df.groupby([col])[target].sum()
+    bad = pd.DataFrame({'bad': bad})
+    regroup = total.merge(bad, left_index=True, right_index=True, how='left')
+    regroup.reset_index(level=0, inplace=True)
+    N = sum(regroup['total'])
+    B = sum(regroup['bad'])
+    regroup['good'] = regroup['total'] - regroup['bad']
+    G = N - B
+    regroup['bad_pcnt'] = regroup['bad'].map(lambda x: x * 1.0 / B)
+    regroup['good_pcnt'] = regroup['good'].map(lambda x: x * 1.0 / G)
+    regroup['WOE'] = regroup.apply(lambda x: np.log(x.good_pcnt * 1.0 / x.bad_pcnt), axis=1)
+    WOE_dict = regroup[[col, 'WOE']].set_index(col).to_dict(orient='index')
+    for k, v in WOE_dict.items():
+        WOE_dict[k] = v['WOE']
 
-    total = pd.DataFrame({'total':total.count()})
-    targeted_ = total.sum()
-    targeted_ = pd.DataFrame({'targeted': targeted_})
-
-    total.merge(targeted_,how='left',left_index=True, right_index=True)
+    IV = regroup.apply(lambda x: (x.good_pcnt - x.bad_pcnt) * np.log(x.good_pcnt * 1.0 / x.bad_pcnt), axis=1)
+    IV = sum(IV)
+    return {"WOE": WOE_dict, 'IV': IV}
 
 
 
