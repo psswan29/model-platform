@@ -124,3 +124,24 @@ def generate_corr_dict(data_1,var_continua_analyse, corr_rate=0.75):
         corr_dict[col] = [item for item in c1.index[c1[col]] if item != col]
     return corr_dict
 
+def dengxin_corr_deal(data_1, var_continua_analyse):
+    """
+    邓欣版本的连续变量自动处理
+    :param data_1: 数据源
+    :param var_continua_analyse: 一个列表，需要分析的连续型变量名
+    :return:
+    一个
+    """
+
+    var_cor_75_dict = tst_continu_var(data_1, var_continua_analyse)
+    list_remove_1 = []
+    list_save = []
+    for j in var_cor_75_dict.keys():
+        list_save.append(j)
+        for j2 in var_cor_75_dict[j]:
+            if j2[0] >= 0.75 and (j2[1] not in list_save):
+                list_remove_1.append(j2[1])
+
+    for var in list_remove_1:
+        print('var %s is deleted because of correlation test' % var)
+    return ('连续变量自动处理',list_remove_1)
