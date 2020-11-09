@@ -51,7 +51,7 @@ def discrete_variable_univar(discrete_1):
         if any(discrete_1[i]['Proportion'] >= 0.9):
             var_tongzhi_list_1.append(i)
             print(i + '\n', discrete_1[i], '\n')
-    return var_tongzhi_list_1
+    return ('离散变量同质分析', var_tongzhi_list_1)
 
 def continua_variable_univar(continua_1):
     """
@@ -67,7 +67,7 @@ def continua_variable_univar(continua_1):
             var_tongzhi_list_2.append(i)
             print(i + '\n', continua_1[i], '\n')
 
-    return var_tongzhi_list_2
+    return ('连续变量同质分析',var_tongzhi_list_2)
 
 def homogeneity_test_m(continua_var, p=3):
     """
@@ -95,7 +95,7 @@ def continua_variable_univar_m(dataset, continual_vars):
         if not homogeneity_test_m(dataset[col]):
             tongzhi_vars.append(col)
 
-    return tongzhi_vars
+    return ('连续变量同质性分析',tongzhi_vars)
 
 
 
