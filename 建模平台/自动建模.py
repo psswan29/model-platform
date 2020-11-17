@@ -155,7 +155,7 @@ if __name__ == '__main__':
                   'GROUP_FLAG','USER_STATUS','FACTORY_DESC',
                   'DEV_CHANGE_NUM_Y1','REAL_HOME_FLAG_M1',
                   'LIKE_HOME_FLAG_M1','REAL_WORK_FLAG_M1',
-                  'LIKE_WORK_FLAG_M1_1']
+                  'LIKE_WORK_FLAG_M1']
 
     max_cate_num = 3
     for var in cate_vars:
