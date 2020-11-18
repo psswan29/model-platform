@@ -35,4 +35,4 @@ if __name__ == '__main__':
                           , [108.1, 114.8, 123.2, 126.9, 132.1, 137.7, 146, 154.1, 162.3, 164.3, 167.6]]).T
     columns = ["var1", "var2", "var3", "var4"]
     df.columns = columns
-    yy = calulate_vif(df)
+    yy = calculate_vif(df)
