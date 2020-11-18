@@ -1,12 +1,22 @@
-
 import pandas as pd
 import numpy as np
 
-def calulate_vif(X, threshold=100):
-    """在不存在多重共线性的情况下，方差扩大因子接近于1。
-    但是，实际上自变量之间总是或多或少地存在多重共线性，因而将方差扩大因子等于1作为评价共线性的标准是不现实的。
+def calculate_vif(X, threshold=100):
+    """
+    计算vif值进行多重共线性检验
+    :param X:
+    :param threshold:
+    :return:
+    1. 一个dataframe, columns 包括 变量名，vif， vif检测是否大于设定阈值threshold
+    2. vif最大的一个变量名
+    3. 未通过vif值检验的变量
+
+    在不存在多重共线性的情况下，方差扩大因子接近于1。
+    但是，实际上自变量之间总是或多或少地存在多重共线性，
+    因而将方差扩大因子等于1作为评价共线性的标准是不现实的。
     多重共线性越强，方差扩大因子就越大。一个易用的标准：
     当VIF值大于10时，就认为变量之间具有强烈的多重共线性，不能接受。"""
+
     from statsmodels.stats.outliers_influence import variance_inflation_factor
 
     vif=[variance_inflation_factor(X.values,i) for i in range(X.shape[1])]
