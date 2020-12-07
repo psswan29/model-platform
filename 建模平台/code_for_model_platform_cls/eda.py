@@ -103,7 +103,7 @@ class EDA(object):
 
         bar.add_yaxis("1", [round(i, 2) for i in values])
 
-        bar.set_global_opts(title_opts=opts.TitleOpts(title='self.var_name'),
+        bar.set_global_opts(title_opts=opts.TitleOpts(title=self.var_name),
                             xaxis_opts=opts.AxisOpts(name_location='end', name='%'),
                             yaxis_opts=opts.AxisOpts(name_location='end', name='Groups'),
                             )
