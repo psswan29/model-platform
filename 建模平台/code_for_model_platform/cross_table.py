@@ -71,7 +71,7 @@ def table_XXX(ddd_1, d1, d2):
     return tt2
 
 #  建立一个英文版的交叉列联表
-def x_table(data, X_NAME, Y_NAME):
+def x_table(data, X_NAME, Y_NAME, verbose=False):
     """
     建立一个英文版的交叉列联表，解决中文版的乱码问题
     created by Shaoming, Wang
@@ -137,6 +137,7 @@ def x_table(data, X_NAME, Y_NAME):
     T.columns = [X_NAME,'type', 'Y_0','Y_1','Total']
     T.set_index([X_NAME,'type'],inplace=True)
 
-    print(T)
+    if verbose:
+        print(T)
 
     return T
