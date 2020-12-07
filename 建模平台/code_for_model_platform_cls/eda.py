@@ -83,16 +83,16 @@ class EDA(object):
             return df
         else:
             from code_for_model_platform.cross_table import x_table
-            return x_table(self.data, self.var_name, 'Y')
+            return x_table(self.data, 'X', 'y')
 
     def plot_notebook(self, split_n=20):
         if self.var_type == 'con':
-            self.__plot_con_notebook(split_n).render_notebook()
+            return self.__plot_con_notebook(split_n)
         else:
-            self.__plot_cat_notebook().render_notebook()
+            return self.__plot_cat_notebook()
 
     def __plot_cat_notebook(self):
-        data = self.data.value_counts()
+        data = pd.value_counts(self.X)
         x = list(data.index.values)
         values = list(data.values / np.sum(data.values) * 100)
 
@@ -149,3 +149,5 @@ class EDA(object):
 
 if __name__ == '__main__':
     pass
+
+
