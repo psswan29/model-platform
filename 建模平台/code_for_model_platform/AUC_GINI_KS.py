@@ -3,7 +3,6 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import statsmodels.api as sm
 
 def roc_auc_gini(y_true,y_score):
     '''
