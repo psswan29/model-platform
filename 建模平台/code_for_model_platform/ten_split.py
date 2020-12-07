@@ -41,7 +41,7 @@ def model_10_split(y_pred, y_true):
     print(tat_1)
     return tat_1
 
-
+# todo
 def model_10_splitm(model, train, target_n='Y'):
     """
     模型10等分，shaoming version
