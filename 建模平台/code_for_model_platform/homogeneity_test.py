@@ -40,7 +40,7 @@ def fenweishu_continuous_variable(data_1, var_list):
         continuous_variable_dict[i] = fenw
     return continuous_variable_dict
 
-def discrete_variable_univar(discrete_1):
+def discrete_variable_univar(discrete_1, verbose=False):
     """
     离散变量同质分析，邓欣版本
     :param discrete_1: 一个字典，键是变量名，值是series
@@ -50,10 +50,11 @@ def discrete_variable_univar(discrete_1):
     for i in discrete_1:
         if any(discrete_1[i]['Proportion'] >= 0.9):
             var_tongzhi_list_1.append(i)
-            print(i + '\n', discrete_1[i], '\n')
+            if verbose:
+                print(i + '\n', discrete_1[i], '\n')
     return ('离散变量同质分析', var_tongzhi_list_1)
 
-def continua_variable_univar(continua_1):
+def continua_variable_univar(continua_1, verbose=False):
     """
     连续变量同质分析，邓欣版本
     :param continua_1: 一个字典：键是变量名，值是series
@@ -61,11 +62,13 @@ def continua_variable_univar(continua_1):
     """
     var_tongzhi_list_2 = []
     for i in continua_1:
-        print('同质分析:',i)
+        if verbose:
+            print('同质分析:',i)
         if (continua_1[i]['estimate'].loc[11] >= 0.9) or (
                 continua_1[i]['estimate'].loc[2] == continua_1[i]['estimate'].loc[8]):
             var_tongzhi_list_2.append(i)
-            print(i + '\n', continua_1[i], '\n')
+            if verbose:
+                print(i + '\n', continua_1[i], '\n')
 
     return ('连续变量同质分析',var_tongzhi_list_2)
 
