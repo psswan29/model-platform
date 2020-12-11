@@ -28,7 +28,7 @@ def f1_test(y_train, y_pred):
     print(np.array(f1))
     return f1
 
-def f1_test_m(y_train, y_pred):
+def f1_test_m(y_train, y_pred, verbose=False):
     """
     created by SHAOMING WANG
     :param y_train: 训练集目标变量，真值
@@ -44,6 +44,7 @@ def f1_test_m(y_train, y_pred):
     threshold = np.sum((y_train == 1).astype(int))/y_train.shape[0]
     temp_df['y_pred'] = (y_pred >= threshold).astype(int)
     f1_score = classification_report(temp_df['y_train'], temp_df['y_pred'])
-    for i in f1_score.split('\n'):
-        print(i)
+    if verbose:
+        for i in f1_score.split('\n'):
+            print(i)
     return f1_score
