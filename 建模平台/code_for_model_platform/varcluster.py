@@ -356,14 +356,15 @@ class VarClusHi(object):
         return rs_table
 
     @staticmethod
-    def reduce_dimension(data_1, corr_):
+    def reduce_dimension(data_1, corr_, verbose=False):
         keep_vars = []
         for i in corr_.values():
             demo_vc = VarClusHi(data_1[i])
             demo_vc.varclus()
-            print(demo_vc.info)
             t = demo_vc.rsquare
-            print(t)
+            if verbose:
+                print(demo_vc.info)
+                print(t)
             keep_vars.append(t['Variable'][np.argmin(t['RS_Ratio'])])
         return keep_vars
 
