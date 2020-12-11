@@ -109,6 +109,16 @@ def gini_split(df, cate_var=[], conti_var=[], y_name='y', rate=0.1,gaps=0.01):
     return split_dict
 
 
+def auto_ginni_split(data_1,conti_var=[], cate_var=[], y_name='Y', gaps=0.05):
+    cate_process_dict = gini_split(data_1, conti_var=conti_var, cate_var=cate_var, y_name=y_name, gaps=gaps)
+    new_col = []
+    for var, s in cate_process_dict.items():
+        print(var, ' ', s)
+        new_col.append(var + '_1')
+        data_1[var + '_1'] = data_1[var].isin(cate_process_dict[var]).astype(int)
+    return data_1, new_col
+
+
 if __name__ == '__main__':
     # print(cal_gini([0,0,0,0,1,0,1],[1,1,0]))
 
