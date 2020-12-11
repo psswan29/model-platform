@@ -29,6 +29,8 @@ def auto_deal_continua(var_continua_analyse_2, data_1, bin_method='chisquare'):
     var_continua_process = {}
     if bin_method == 'chisquare':
         bin_func = moto_binning_chi
+    elif bin_method == 'ks':
+        bin_func = bin_using_ks
 
 
     # 使用一个进程池来运行分箱算法
@@ -217,6 +219,6 @@ def chi_merge_base(data_0, var_continu: str, y:str):
 
 
 if __name__ == '__main__':
-    df = pd.read_csv('./lucheng_data.csv', encoding='gbk')
+    df = pd.read_csv('../lucheng_data.csv', encoding='gbk')
     output = moto_binning_chi(df, 'WEIXIN_APP_NUM_M1', 'Y')
-    output = bin_using_ks()
+    # output = bin_using_ks(df, 'WEIXIN_APP_NUM_M1', 'Y')
