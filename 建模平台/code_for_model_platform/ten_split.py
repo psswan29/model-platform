@@ -55,7 +55,7 @@ def model_10_splitm(model, train, target_n='Y'):
     train.sort_values(by='y_pred_', ascending=False,inplace=True)
     train.reset_index(drop=True, inplace=True)
 
-    train['G'] = np.ravel([[i] * int(math.ceil(train.shape[0]/10))  for i in range(10)])
+    train['G'] = np.ravel([[i] * int(math.ceil(train.shape[0]/10))  for i in range(10)])[:train.shape[0]]
 
     train_g = train.groupby(by='G').agg({'G':'count',
                                          target_n:['sum','mean'],
