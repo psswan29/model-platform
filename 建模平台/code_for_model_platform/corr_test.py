@@ -5,6 +5,7 @@ import seaborn as sns
 # 计算相关系数
 from collections import defaultdict
 
+
 def cor_data(data_1, variable_list):
     '''
     邓欣版本
@@ -60,7 +61,7 @@ def tst_continu_var(data_1, var_continua_analyse, corr_rate=0.75):
             var_cor_dict[i] = var_cor[i]
     return var_cor_dict
 
-# 相关性检验测试版本，基于此版才能进行
+# 相关性检验测试版本，基于此版才能进行过程保存
 def tst_continu_var_1(data_1, var_continua_analyse, corr_rate=0.75):
     """
     created by SHAOMING, WANG
@@ -126,11 +127,11 @@ def generate_corr_dict(data_1,var_continua_analyse, corr_rate=0.75):
 
 def dengxin_corr_deal(data_1, var_continua_analyse):
     """
-    邓欣版本的连续变量自动处理
+    邓欣版本的连续变量相关性自动处理，相关性较强的变量是被随机删除
     :param data_1: 数据源
     :param var_continua_analyse: 一个列表，需要分析的连续型变量名
     :return:
-    一个
+    一个列表用于承装被删除变量
     """
 
     var_cor_75_dict = tst_continu_var(data_1, var_continua_analyse)
