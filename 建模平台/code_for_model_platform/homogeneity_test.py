@@ -40,15 +40,15 @@ def fenweishu_continuous_variable(data_1, var_list):
         continuous_variable_dict[i] = fenw
     return continuous_variable_dict
 
-def discrete_variable_univar(discrete_1, verbose=False):
+def discrete_variable_univar(discrete_1, p=0.9, verbose=False):
     """
-    离散变量同质分析，邓欣版本
+    离散变量同质分析
     :param discrete_1: 一个字典，键是变量名，值是series
     :return: 一个列表
     """
     var_tongzhi_list_1 = []
     for i in discrete_1:
-        if any(discrete_1[i]['Proportion'] >= 0.9):
+        if any(discrete_1[i]['Proportion'] >= p):
             var_tongzhi_list_1.append(i)
             if verbose:
                 print(i + '\n', discrete_1[i], '\n')
@@ -72,7 +72,7 @@ def continua_variable_univar(continua_1, verbose=False):
 
     return ('连续变量同质分析',var_tongzhi_list_2)
 
-def homogeneity_test_m(continua_var, p=3):
+def homogeneity_test_m(continua_var, p=3,step=5):
     """
     连续变量同质分析，王绍明版本
     :param continua_1: 一个连续变量pandas.series
@@ -80,7 +80,7 @@ def homogeneity_test_m(continua_var, p=3):
     :return: boolean value, 是否通过同质性检验
     """
     # 产生21个分位点，去重之后
-    if len(set(continua_var.quantile([i * 0.01  for i in range(0,101,5)],'nearest'))) <= p:
+    if len(set(continua_var.quantile([i * 0.01  for i in range(0,101,step)],'nearest'))) <= p:
         return False
     else:
         return True
