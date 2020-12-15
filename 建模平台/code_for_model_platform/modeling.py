@@ -72,7 +72,7 @@ def sample_weight(Train_t,y,i_0,j_1):
     return Train_weight
 
 
-def build_logistic_model(y_name, X_names, train):
+def build_logistic_model(y_name, X_names, train,seed=2020):
     """
     建立逻辑回归模型，此方法是使用stats的内嵌方法，不具备变量筛选功能，
     stepwise_selection以及backward_selection是以此方法为基础
@@ -82,6 +82,7 @@ def build_logistic_model(y_name, X_names, train):
     :return:
     result 建模结果
     """
+    np.random.seed(seed)
     model = smf.logit(y_name + " ~ " + "+".join(X_names), train)
     result = model.fit()
     return result
@@ -133,7 +134,7 @@ def stepwise_selection(train: pd.DataFrame,
             included.add(best_feature)
             if  verbose:
                 print(included)
-                print('Add  {:30} with chi-square: {:.6}'.format(best_feature, best_chival))
+                print('Add  {:30} with chi-square p-value: {:.6}'.format(best_feature, best_chival))
             changed=True
 
         if len(included) < 3:
@@ -153,7 +154,7 @@ def stepwise_selection(train: pd.DataFrame,
             else:
                 changed = False
             if verbose:
-                print('Drop {:30} with chi-square: {:.6}'.format(worst_feature, worst_chival))
+                print('Drop {:30} with chi-square p-value: {:.6}'.format(worst_feature, worst_chival))
         if not changed:
             break
 
