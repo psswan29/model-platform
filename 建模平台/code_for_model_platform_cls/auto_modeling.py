@@ -30,9 +30,8 @@ class modeling(object):
         self.random_state = random_state
 
 
-    def fit(self, verbose=True, LG_type='step',sle=0.15, sls=0.15, tst_split=False,**kwargs):
-        global seed
-        seed = np.random.RandomState(self.random_state)
+    def fit(self, verbose=True, LG_type='step',sle=0.15, sls=0.15, tst_split=False, random_state=None,**kwargs):
+
         print()
         print('正在进行---类别变量同质性检验。。。。。。')
         discrete_1 = discrete_variable_table(self.df, self.var_discrete)
@@ -70,7 +69,7 @@ class modeling(object):
         print()
         print('正在进行---连续变量自动分箱。。。。。。')
         # 连续变量自动处理
-        var_continua_for_model, var_continua_process = auto_deal_continua(var_continua_analyse_2, data_1,y_name=self.y)
+        var_continua_for_model, var_continua_process = auto_deal_continua(var_continua_analyse_2, data_1,y_name=self.y,verbose=verbose)
 
         # 汇总所有解释变量
         var_for_model_all = var_discrete_for_model + var_continua_for_model
@@ -79,7 +78,7 @@ class modeling(object):
         print('正在进行---入模变量相关性检验。。。。。。')
         corr_dict, corr_, independent_var, log = tst_continu_var_1(data_1, var_for_model_all)
 
-        keep_vars2 = VarClusHi.reduce_dimension(data_1, corr_, verbose=True)
+        keep_vars2 = VarClusHi.reduce_dimension(data_1, corr_, verbose=verbose)
         var_del2 = ('入模变量相关性检验', [e for e in {i for s in corr_.values() for i in s} if e not in keep_vars2])
 
         var_for_model_all_y = keep_vars2 + independent_var + [self.y]
@@ -90,7 +89,7 @@ class modeling(object):
         train = data_1
         if tst_split:
             train, test = train_test_split(data_1, test_size=0.2, random_state=1234590)
-            y_test_pred = self.model_final.predict(test[var_for_model_all])
+
 
         print()
         print('正在进行---建模过程。。。。。。')
@@ -102,15 +101,11 @@ class modeling(object):
 
         y_pred = self.model_final.predict()
 
-
         from code_for_model_platform.AUC_GINI_KS import roc_auc_gini,get_ks
 
         print('训练集auc：', roc_auc_gini(train[self.y], y_pred))
         print('训练集KS:', get_ks(y_pred, train[self.y]))
 
-        if tst_split:
-            print('测试集auc：', roc_auc_gini(test[self.y], y_test_pred))
-            print('测试集KS:', get_ks(y_test_pred, y_test))
 
         from code_for_model_platform.F1test import  f1_test_m
         # f-1检验
@@ -120,3 +115,8 @@ class modeling(object):
         # 模型十等分
         print("模型的十等分：\n", model_10_splitm(self.model_final, train,target_n=self.y))
 
+        if tst_split:
+            y_test_pred = self.model_final.predict(test[var_for_model_all])
+            print('测试集auc：', roc_auc_gini(test[self.y], y_test_pred))
+            print('测试集KS:', get_ks(y_test_pred, y_test))
+            print("模型的十等分：\n", model_10_splitm(self.model_final, train, target_n=self.y))
