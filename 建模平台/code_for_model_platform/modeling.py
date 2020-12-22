@@ -46,9 +46,11 @@ logit
 """
 
 import numpy as np
+import random
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 import pandas as pd
+from scipy import stats
 
 #对样本加权重
 def sample_weight(Train_t,y,i_0,j_1):
@@ -72,7 +74,7 @@ def sample_weight(Train_t,y,i_0,j_1):
     return Train_weight
 
 
-def build_logistic_model(y_name, X_names, train,seed=2020):
+def build_logistic_model(y_name, X_names, train,seed=2020,maxiter=None):
     """
     建立逻辑回归模型，此方法是使用stats的内嵌方法，不具备变量筛选功能，
     stepwise_selection以及backward_selection是以此方法为基础
@@ -82,20 +84,79 @@ def build_logistic_model(y_name, X_names, train,seed=2020):
     :return:
     result 建模结果
     """
+    random.seed(seed)
     np.random.seed(seed)
+
     model = smf.logit(y_name + " ~ " + "+".join(X_names), train)
-    result = model.fit()
+    if not maxiter:
+        maxiter = train.shape[0]
+    result = model.fit(maxiter=maxiter)
     return result
 
-#构造逐步回归筛选变量并建模
-def stepwise_selection(train: pd.DataFrame,
+def build_logistic_model_skl(X_train, y_train, **kwargs):
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import roc_auc_score
+    from sklearn.feature_selection import chi2
+
+    np.random.seed(2020)
+    import random
+    random.seed(2020)
+
+    LG = LogisticRegression(penalty='l2',
+                            dual=False,
+                            tol=0.1e-5,
+                            C=1.0,
+                            fit_intercept=True,
+                            intercept_scaling=1,
+                            class_weight=None,
+                            random_state=2020,
+                            solver='newton-cg',
+                            max_iter=1000,
+                            multi_class='auto',
+                            verbose=10,
+                            warm_start=False,
+                            n_jobs=4,
+                            l1_ratio=None)
+    LG.fit( X_train,y_train , sample_weight=None)
+    print(LG.get_params())
+    auc = roc_auc_score(y_train, LG.predict_proba(X_train)[:, 1])
+    t= get_tvalues(LG,X_train,y_train)
+    return LG, auc, t
+
+def get_tvalues(lm,X,y):
+    params = np.append(lm.intercept_,lm.coef_)
+    predictions = lm.predict_proba(X)[:,1]
+
+    newX = np.append(np.ones((len(X),1)), X, axis=1)
+    MSE = (sum((y-predictions)**2))/(len(newX)-len(newX[0]))
+
+    var_b = MSE*(np.linalg.inv(np.dot(newX.T,newX)).diagonal())
+    sd_b = np.sqrt(var_b)
+    ts_b = params/ sd_b
+
+    p_values =[2*(1-stats.t.cdf(np.abs(i),(len(newX)-len(newX[0])))) for i in ts_b]
+
+    sd_b = np.round(sd_b,3)
+    ts_b = np.round(ts_b,3)
+    p_values = np.round(p_values,3)
+    params = np.round(params,4)
+
+    index = ['intercept_']+list(X.columns)
+    myDF3 = pd.DataFrame(index=index)
+    myDF3["Coefficients"],myDF3["Standard Errors"],myDF3["t values"],myDF3["P_value"] = [params,sd_b,ts_b,p_values]
+    return myDF3
+
+
+def stepwise_selection_skl(train: pd.DataFrame,
                        y_n: str ='Y',
                        initial_list=[],
                        sle=0.05,
                        sls=0.05,
-                       verbose=False):
+                       verbose=False,
+                           min_var_num=3):
     """
         created by SHAOMING, WANG
+        sklearn 版本逐步回归
         train - pandas.DataFrame with candidate features 用于训练模型的数据需包括因变量
         y - dependent variate 因变量名称，字符型
         initial_list - list of features to start with (column names of X)
@@ -120,16 +181,20 @@ def stepwise_selection(train: pd.DataFrame,
         changed = False
 
         excluded = cols - included
-        new_chival = {}
+        # new_chival = {}
 
-        result  = build_logistic_model(y_n, excluded, train)
-        result_w = result.wald_test_terms()
+        model,auc, t = build_logistic_model_skl(X.loc[:,list(excluded)],train[y_n])
+        best_feature_array = t.iloc[1:,:].sort_values('P_value').iloc[0, :]
+        best_feature, best_chival = best_feature_array.name, best_feature_array['P_value']
 
-        for new_column in excluded:
-            new_chival[new_column] = result_w.summary_frame()['P>chi2'][new_column]
-        best_feature, best_chival = sorted(new_chival.items(),
-                                          key=lambda x: new_chival[x[0]],
-                                          reverse=False)[0]
+        # result  = build_logistic_model(y_n, excluded, train)
+        # result_w = result.wald_test_terms()
+
+        # for new_column in excluded:
+        #     new_chival[new_column] = t['P_value'][new_column]
+        # best_feature, best_chival = sorted(new_chival.items(),
+        #                                   key=lambda x: x[1],
+        #                                   reverse=False)[0]
         if best_chival < sle:
             included.add(best_feature)
             if  verbose:
@@ -137,18 +202,96 @@ def stepwise_selection(train: pd.DataFrame,
                 print('Add  {:30} with chi-square p-value: {:.6}'.format(best_feature, best_chival))
             changed=True
 
-        if len(included) < 3:
+        if len(included) < min_var_num:
             continue
+        model,auc, t = build_logistic_model_skl(X.loc[:,list(included)],train[y_n])
 
+        worst_feature = t.index[np.argmax(t['P_value'])]
+        # result_backward = build_logistic_model(y_n, included, train)
+        # result_backward_w = result_backward.wald_test_terms()
+        # use all coefs except intercept
+        #  pvalues = result_backward_w.summary_frame()['P_value'].iloc[1:]
+        worst_chip = t['P_value'].max()
+        # worst_feature = worst_chip.index[worst_chip.argmax()]
+
+        if worst_chip > sls:
+            included.discard(worst_feature)
+            if best_feature != worst_feature:
+                changed = True
+            else:
+                changed = False
+            if verbose:
+                print('Drop {:30} with chi-square p-value: {:.6}'.format(worst_feature, worst_chip))
+        if not changed:
+            break
+
+    # result = build_logistic_model(y_n, included, train)
+    model, auc, t = build_logistic_model_skl(X.loc[:, list(included)], train[y_n])
+
+    return model, auc, t
+
+#构造逐步回归筛选变量并建模
+def stepwise_selection(train: pd.DataFrame,
+                       y_n: str ='Y',
+                       initial_list:list=[],
+                       sle=0.05,
+                       sls=0.05,
+                       verbose=False,
+                       min_var_num=3):
+    """
+        created by SHAOMING, WANG
+        train - pandas.DataFrame with candidate features 用于训练模型的数据需包括因变量
+        y - dependent variate 因变量名称，字符型
+        initial_list - list of features to start with (column names of X)
+        sle - 设定阈值，参数决定新变量是否进入模型
+        sls - 设定阈值，参数决定输入变量是否被删除
+        verbose - 是否打印进入模型变量以及排除模型变量
+    Returns:
+
+    Always set threshold_in < threshold_out to avoid infinite looping.
+
+    """
+    func_dict = {'max':(np.max, np.argmax),'min':(np.min,np.argmin)}
+
+    def choice_waldtst(included, f_n):
         result_backward = build_logistic_model(y_n, included, train)
         result_backward_w = result_backward.wald_test_terms()
-       # use all coefs except intercept
+        f1 = func_dict[f_n][0]
+        f2 = func_dict[f_n][1]
         chivalues = result_backward_w.summary_frame()['P>chi2'].iloc[1:]
-        worst_chival = chivalues.max()
+        p_chival = f1(chivalues)
+        feature = chivalues.index[f2(chivalues)]
+        return p_chival, feature
+
+    X = train[[col for col in train.columns if col != y_n]]
+    included = initial_list
+    cols = set(X.columns)
+    # 迭代次数
+    iter_num = 1
+
+    while True:
+        print('this is the {} time iteration'.format(iter_num))
+        iter_num += 1
+        changed = False
+
+        excluded = [col for col in cols if col not in included]
+
+        best_chival, best_feature = choice_waldtst(excluded, 'min')
+
+        if best_chival < sle:
+            included.append(best_feature)
+            if  verbose:
+                print(included)
+                print('Add  {:30} with chi-square p-value: {:.6}'.format(best_feature, best_chival))
+            changed=True
+
+        if len(included) < min_var_num:
+            continue
+
+        worst_chival, worst_feature = choice_waldtst(included,'max')
 
         if worst_chival > sls:
-            worst_feature = chivalues.index[chivalues.argmax()]
-            included.discard(worst_feature)
+            included.remove(worst_feature)
             if best_feature != worst_feature:
                 changed = True
             else:
