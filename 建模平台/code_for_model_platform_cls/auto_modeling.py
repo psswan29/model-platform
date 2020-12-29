@@ -7,6 +7,8 @@ from code_for_model_platform.ginni_split import auto_ginni_split
 from code_for_model_platform.auto_bin_using_chi import auto_deal_continua
 from sklearn.model_selection import train_test_split
 from code_for_model_platform.modeling import stepwise_selection,backward_selection
+from code_for_model_platform.ten_split import model_10_splitm
+from code_for_model_platform.AUC_GINI_KS import roc_auc_gini, get_ks
 
 
 class modeling(object):
@@ -30,7 +32,7 @@ class modeling(object):
         self.random_state = random_state
 
 
-    def fit(self, verbose=True, LG_type='step',sle=0.15, sls=0.15, tst_split=False, random_state=None,**kwargs):
+    def fit(self, verbose=True, LG_type='step',sle=0.15, sls=0.15, tst_split=False, **kwargs):
 
         print()
         print('正在进行---类别变量同质性检验。。。。。。')
@@ -57,19 +59,20 @@ class modeling(object):
 
         # todo gini分箱存在bug，需修改
         # 此时data_1
-        data_1, new_col = auto_ginni_split(self.df,
+        data_1, new_col,cate_process_dict = auto_ginni_split(self.df,
                                            conti_var=[],
                                            cate_var=var_discrete_analyse,
                                            y_name=self.y,
                                            gaps=0.05,
                                            verbose=verbose)
-
+        self.cate_process_dict = cate_process_dict
         var_discrete_for_model = new_col
 
         print()
         print('正在进行---连续变量自动分箱。。。。。。')
         # 连续变量自动处理
         var_continua_for_model, var_continua_process = auto_deal_continua(var_continua_analyse_2, data_1,y_name=self.y,verbose=verbose)
+        self.var_continua_process = var_continua_process
 
         # 汇总所有解释变量
         var_for_model_all = var_discrete_for_model + var_continua_for_model
@@ -81,7 +84,10 @@ class modeling(object):
         keep_vars2 = VarClusHi.reduce_dimension(data_1, corr_, verbose=verbose)
         var_del2 = ('入模变量相关性检验', [e for e in {i for s in corr_.values() for i in s} if e not in keep_vars2])
 
-        var_for_model_all_y = keep_vars2 + independent_var + [self.y]
+        var_for_model_all_ = keep_vars2 + independent_var
+        self.var_for_model_all_ = var_for_model_all_
+        var_for_model_all_y = var_for_model_all_ + [self.y]
+
         X_train, X_test, y_train, y_test = train_test_split(data_1.drop(self.y, 1), data_1[self.y], test_size=0.2,
                                                             random_state=1234590)
 
@@ -99,24 +105,64 @@ class modeling(object):
         else:
             self.model_final = backward_selection(train[var_for_model_all_y],y_name=self.y, sle=sle, sls=sls, verbose=verbose)
 
-        y_pred = self.model_final.predict()
+        self.__print_model_process( var_tongzhi_list_1, var_tongzhi_list_2, list_remove_1, var_del2)
 
-        from code_for_model_platform.AUC_GINI_KS import roc_auc_gini,get_ks
+        y_pred = self.model_final.predict(train[var_for_model_all_])
 
-        print('训练集auc：', roc_auc_gini(train[self.y], y_pred))
-        print('训练集KS:', get_ks(y_pred, train[self.y]))
+
+        self.auc = roc_auc_gini(train[self.y], y_pred)
+        self.ks = get_ks(y_pred, train[self.y])
+        print('训练集auc：', self.auc)
+        print('训练集KS:', self.ks)
 
 
         from code_for_model_platform.F1test import  f1_test_m
         # f-1检验
-        f1_result2 = f1_test_m(train[self.y], y_pred, verbose=verbose)
+        self.f1_result = f1_test_m(train[self.y], y_pred, verbose=verbose)
 
-        from code_for_model_platform.ten_split import model_10_splitm
+
         # 模型十等分
-        print("模型的十等分：\n", model_10_splitm(self.model_final, train,target_n=self.y))
+        self.ten_split = model_10_splitm(self.model_final, train,target_n=self.y)
+        print("模型的十等分：\n", self.ten_split)
 
         if tst_split:
             y_test_pred = self.model_final.predict(test[var_for_model_all])
             print('测试集auc：', roc_auc_gini(test[self.y], y_test_pred))
             print('测试集KS:', get_ks(y_test_pred, y_test))
             print("模型的十等分：\n", model_10_splitm(self.model_final, train, target_n=self.y))
+
+    def eval(self, eval_X:pd.DataFrame):
+        for col in  eval_X.columns:
+            if col in self.cate_process_dict.keys():
+                eval_X[col + '_1'] = eval_X[col].isin(self.cate_process_dict[col]).astype(int)
+            elif col in self.var_continua_process.keys():
+                edges = [float(i.strip()) for i in self.var_continua_process[col].replace('<','').replace('>','').replace('=','').split('and')]
+                if len(edges)==2:
+                    eval_X[col + '_1'] = ((eval_X[col]>edges[0]) & (eval_X[col]<=edges[1])).astype(int)
+                else:
+                    eval_X[col + '_1'] = (eval_X[col]<=edges[0]).astype(int)
+
+        self.eval_pred = self.model_final.predict(eval_X[self.var_for_model_all_])
+        self.eval_auc = roc_auc_gini(eval_X[self.y], self.eval_pred)
+        self.eval_ks = get_ks(self.eval_pred, eval_X[self.y])
+        self.eval_ten_split = model_10_splitm(self.model_final, eval_X, target_n=self.y)
+
+        print('测试集auc：', self.eval_auc)
+        print('测试集KS:', self.eval_ks)
+        print("模型的十等分：\n", self.eval_ten_split)
+
+
+    # 打印变量处理过程
+    def __print_model_process(self, *args):
+        for i,e in enumerate(args):
+            print('-'*400)
+            print(f'建模流程 第{i+1}步 {e[0]} 删除的变量有: ')
+            print('-' * 400)
+            for v in e[1]:
+                print(v,end='\t')
+            print(end='\n')
+            print('-' * 400)
+
+
+if __name__ == '__main__':
+    pass
