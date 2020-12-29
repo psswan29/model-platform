@@ -120,7 +120,7 @@ def auto_ginni_split(data_1:pd.DataFrame,conti_var=[], cate_var=[], y_name='Y', 
             print(var, ' ', s)
         new_col.append(var + '_1')
         data[var + '_1'] = data_1[var].isin(cate_process_dict[var]).astype(int)
-    return data, new_col
+    return data, new_col, cate_process_dict
 
 
 if __name__ == '__main__':
