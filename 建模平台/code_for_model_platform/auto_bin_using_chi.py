@@ -15,7 +15,7 @@ from scipy.stats import chi2_contingency
 from multiprocessing import Pool
 
 
-def auto_deal_continua(var_continua_analyse_2, data_1, bin_method='chisquare'):
+def auto_deal_continua(var_continua_analyse_2, data_1,y_name='Y', bin_method='chisquare',verbose=True):
     """
     # 连续变量自动处理
     :param var_continua_analyse_2: 连续变量名
@@ -35,7 +35,7 @@ def auto_deal_continua(var_continua_analyse_2, data_1, bin_method='chisquare'):
 
     # 使用一个进程池来运行分箱算法
     with Pool(5) as p:
-        bin_result_list = p.starmap(bin_func, [(data_1, col, 'Y') for col in var_continua_analyse_2])
+        bin_result_list = p.starmap(bin_func, [(data_1, col, y_name) for col in var_continua_analyse_2])
 
     for var, t in zip(var_continua_analyse_2, bin_result_list):
         new_var_final, ix = t
@@ -53,11 +53,12 @@ def auto_deal_continua(var_continua_analyse_2, data_1, bin_method='chisquare'):
     #     print(var_continua_process[j1])
 
     # 结果显示连续变量自动处理结果
-    for i in var_continua_process.items():
-        print(i, '\n')
+    if verbose:
+        for i in var_continua_process.items():
+            print(i[0],'\t',i[1])
     return var_continua_for_model, var_continua_process
 
-def moto_binning_chi(data_0, var_continu: str, y:str):
+def moto_binning_chi(data_0:pd.DataFrame, var_continu: str, y:str):
     """
     #基于卡方分层
     #
@@ -68,21 +69,21 @@ def moto_binning_chi(data_0, var_continu: str, y:str):
         new_var_final: new_var_dict 中保存的最优的处理后的vector
         ix: new_var_dict 中键值
     """
-    new_var_dict = {}
-    data_1 = data_0.copy()
-    
-    xx = [x*2 for x in range(1, 50)]
 
-    xx_2 = [np.percentile(data_1[var_continu].dropna(), x) for x in xx] #按比例算分位点
+    new_var_dict = {}
+
+    data_1 = data_0.copy()
+    data_cl = data_1[var_continu].dropna()
+    xx_2 = [np.percentile(data_cl, x*2)  for x in range(1, 50)] #按比例算分位点
     
     output_1 = pd.Series()
     for x in set(xx_2):
-        data_1['new_var'] = (data_1[var_continu] <= x).astype(int)
-        pp = pd.crosstab(data_1['%s' % y],data_1['new_var'])
+        data_1['new_var'] = (data_cl <= x).astype(int)
+        pp = pd.crosstab(data_1[y],data_1['new_var'])
         dd = np.array([list(pp.iloc[0]),list(pp.iloc[1])])
         pppp = chi2_contingency(dd)
         output_1['<=%s' % x] = pppp[0]
-        new_var_dict['<=%s' % x] = (data_1[var_continu] <= x).astype(int)
+        new_var_dict['<=%s' % x] = (data_cl <= x).astype(int)
     output_1.sort_values(ascending=False, inplace=True)
     try:
         output_1_1 = output_1.iloc[:5]
@@ -93,14 +94,14 @@ def moto_binning_chi(data_0, var_continu: str, y:str):
     output_2 = pd.Series()
     for i in range(1, 45):
         for j in range(i+5, 50):
-            i_1 = np.percentile(data_1[var_continu].dropna(), i*2)
-            j_1 = np.percentile(data_1[var_continu].dropna(), j*2)
-            data_1['new_var_2'] = ((data_1[var_continu] > i_1) & (data_1[var_continu]<=j_1)).astype(int)
-            pp_2 = pd.crosstab(data_1['%s' % y], data_1['new_var_2'])
+            i_1 = np.percentile(data_cl, i*2)
+            j_1 = np.percentile(data_cl, j*2)
+            data_1['new_var_2'] = ((data_cl > i_1) & (data_cl<=j_1)).astype(int)
+            pp_2 = pd.crosstab(data_1[y], data_1['new_var_2'])
             dd_2 = np.array([list(pp_2.iloc[0]), list(pp_2.iloc[1])])
             pppp_2 = chi2_contingency(dd_2)
             output_2['>%s and <=%s'%(i_1, j_1)] = pppp_2[0]
-            new_var_dict['>%s and <=%s'%(i_1, j_1)] = ((data_1['%s'%var_continu] > i_1) & (data_1['%s'%var_continu] <= j_1)).astype(int)
+            new_var_dict['>%s and <=%s'%(i_1, j_1)] = ((data_cl > i_1) & (data_cl <= j_1)).astype(int)
     output_2.sort_values(ascending=False, inplace=True)
     try:
         output_2_1 = output_2.iloc[:5]
