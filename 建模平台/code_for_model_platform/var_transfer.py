@@ -58,15 +58,15 @@ def var_change(in_df:pd.DataFrame,
 
     df_1 = df
 
-    df_1["X_sq"] = df_1[X] ** 2
-    df_1["X_sqrt"] = np.sqrt(np.where(df_1[X]<0,0,df_1[X]))  # sqrt(max(x,0))
-    df_1["X_cu"] = df_1[X] ** 3
-    df_1["X_curt"] = np.cbrt(df_1[X])
-    df_1["X_log"] = np.log(np.where(df_1[X] < 1e-3,1e-3,df_1[X]))  # log(max(x,0.001))
+    df_1["_sq"] = df_1[X] ** 2
+    df_1["_sqrt"] = np.sqrt(np.where(df_1[X]<0,0,df_1[X]))  # sqrt(max(x,0))
+    df_1["_cu"] = df_1[X] ** 3
+    df_1["_curt"] = np.cbrt(df_1[X])
+    df_1["_log"] = np.log(np.where(df_1[X] < 1e-3,1e-3,df_1[X]))  # log(max(x,0.001))
 
     # 从7种转换方法种，挑选最优的转换方法。用"statsmodels"下的Logit，
     # 逐一与y进行建模，并计算每个转化后变量的p_value。
-    column=[X, "X_sq","X_sqrt","X_cu","X_curt","X_log",]
+    column=[X, "_sq","_sqrt","_cu","_curt","_log",]
 
     from code_for_model_platform.modeling import stepwise_selection, build_logistic_model
     from sklearn.metrics import roc_auc_score
@@ -79,7 +79,7 @@ def var_change(in_df:pd.DataFrame,
     auc = roc_auc_score(df_1[Y], model_result.predict())
     if (feature != X) and ( auc > 0.8):
         return  X, feature, df_1[feature]
-    return
+    return None
 
 
 if __name__ == '__main__':
