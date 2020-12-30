@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 from code_for_model_platform.modeling import stepwise_selection,backward_selection
 from code_for_model_platform.ten_split import model_10_splitm
 from code_for_model_platform.AUC_GINI_KS import roc_auc_gini, get_ks
-
+from code_for_model_platform.var_transfer import var_change
 
 class modeling(object):
 
@@ -74,11 +74,24 @@ class modeling(object):
         var_continua_for_model, var_continua_process = auto_deal_continua(var_continua_analyse_2, data_1,y_name=self.y,verbose=verbose)
         self.var_continua_process = var_continua_process
 
-        # 汇总所有解释变量
-        var_for_model_all = var_discrete_for_model + var_continua_for_model
+        print()
+        print('正在进行---连续变量自动拟合。。。。。。')
+        var_fittings = [var_change(data_1, col,self.y, n=20) for col in var_continua_for_model]
+        if any(var_fittings):
+            var_fitting_process = {}
+            for i in var_fittings:
+                if not i: continue
+                var, feature, series = i
+                print('%s is added to training set' % (var+feature))
+                data_1[var+feature] = series
+                var_continua_for_model.append(var+feature)
+                var_fitting_process[var]=feature
+            self.var_fitting_process = var_fitting_process
 
         print()
         print('正在进行---入模变量相关性检验。。。。。。')
+        # 汇总所有解释变量
+        var_for_model_all = var_discrete_for_model + var_continua_for_model
         corr_dict, corr_, independent_var, log = tst_continu_var_1(data_1, var_for_model_all)
 
         keep_vars2 = VarClusHi.reduce_dimension(data_1, corr_, verbose=verbose)
@@ -120,7 +133,6 @@ class modeling(object):
         # f-1检验
         self.f1_result = f1_test_m(train[self.y], y_pred, verbose=verbose)
 
-
         # 模型十等分
         self.ten_split = model_10_splitm(self.model_final, train,target_n=self.y)
         print("模型的十等分：\n", self.ten_split)
@@ -132,15 +144,30 @@ class modeling(object):
             print("模型的十等分：\n", model_10_splitm(self.model_final, test, target_n=self.y))
 
     def eval(self, eval_X:pd.DataFrame):
+        df_1 = {}
+        df_1["_sq"] = lambda X: X ** 2
+        df_1["_sqrt"] = lambda X: np.sqrt(np.where(X < 0, 0, X))  # sqrt(max(x,0))
+        df_1["_cu"] = lambda X: X ** 3
+        df_1["_curt"] = lambda X: np.cbrt(X)
+        df_1["_log"] = lambda X: np.log(np.where(X < 1e-3, 1e-3, X))
+
         for col in  eval_X.columns:
             if col in self.cate_process_dict.keys():
                 eval_X[col + '_1'] = eval_X[col].isin(self.cate_process_dict[col]).astype(int)
-            elif col in self.var_continua_process.keys():
+                continue
+
+            if col in self.var_continua_process.keys():
                 edges = [float(i.strip()) for i in self.var_continua_process[col].replace('<','').replace('>','').replace('=','').split('and')]
                 if len(edges)==2:
                     eval_X[col + '_1'] = ((eval_X[col]>edges[0]) & (eval_X[col]<=edges[1])).astype(int)
                 else:
                     eval_X[col + '_1'] = (eval_X[col]<=edges[0]).astype(int)
+
+            if col in self.var_fitting_process.keys():
+                feature =  self.var_fitting_process[col]
+                f = df_1[feature]
+                eval_X[col+feature] = f(eval_X[col])
+
 
         self.eval_pred = self.model_final.predict(eval_X[self.var_for_model_all_])
         self.eval_auc = roc_auc_gini(eval_X[self.y], self.eval_pred)
