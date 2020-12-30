@@ -15,9 +15,9 @@ class modeling(object):
 
     def __init__(self, df: pd.DataFrame,
                  target_var:str,
-                 var_del=[],
-                 var_discrete=[],
-                 var_continual=[],
+                 var_del:list,
+                 var_discrete:list,
+                 var_continual:list,
                  method ='LG',
                  random_state=None
                  ):
@@ -88,20 +88,20 @@ class modeling(object):
         self.var_for_model_all_ = var_for_model_all_
         var_for_model_all_y = var_for_model_all_ + [self.y]
 
-        X_train, X_test, y_train, y_test = train_test_split(data_1.drop(self.y, 1), data_1[self.y], test_size=0.2,
-                                                            random_state=1234590)
-
         # 是否划分训练集、测试集
         train = data_1
         if tst_split:
             train, test = train_test_split(data_1, test_size=0.2, random_state=1234590)
 
-
         print()
         print('正在进行---建模过程。。。。。。')
+
+        # 若给定褚时列表则依据给定列表设置入模变量
+        # todo
+        initial_list = kwargs.get('initial_list',[])
         # 构造逐步回归筛选变量并建模
         if LG_type in ('step', 'STEP'):
-            self.model_final = stepwise_selection(train[var_for_model_all_y],y_n=self.y, sle=sle, sls=sls, verbose=verbose)
+            self.model_final = stepwise_selection(train[var_for_model_all_y],initial_list=initial_list,y_n=self.y, sle=sle, sls=sls, verbose=verbose)
         else:
             self.model_final = backward_selection(train[var_for_model_all_y],y_name=self.y, sle=sle, sls=sls, verbose=verbose)
 
@@ -128,8 +128,8 @@ class modeling(object):
         if tst_split:
             y_test_pred = self.model_final.predict(test[var_for_model_all])
             print('测试集auc：', roc_auc_gini(test[self.y], y_test_pred))
-            print('测试集KS:', get_ks(y_test_pred, y_test))
-            print("模型的十等分：\n", model_10_splitm(self.model_final, train, target_n=self.y))
+            print('测试集KS:', get_ks(y_test_pred, test[self.y]))
+            print("模型的十等分：\n", model_10_splitm(self.model_final, test, target_n=self.y))
 
     def eval(self, eval_X:pd.DataFrame):
         for col in  eval_X.columns:
