@@ -230,14 +230,15 @@ def stepwise_selection_skl(train: pd.DataFrame,
 
     return model, auc, t
 
-#构造逐步回归筛选变量并建模
 def stepwise_selection(train: pd.DataFrame,
+                       initial_list:list,
                        y_n: str ='Y',
-                       initial_list:list=[],
                        sle=0.05,
                        sls=0.05,
                        verbose=False,
-                       min_var_num=3):
+                       min_var_num=3,
+                       max_var_num=15,
+                       strict_mode=False):
     """
         created by SHAOMING, WANG
         train - pandas.DataFrame with candidate features 用于训练模型的数据需包括因变量
@@ -246,11 +247,15 @@ def stepwise_selection(train: pd.DataFrame,
         sle - 设定阈值，参数决定新变量是否进入模型
         sls - 设定阈值，参数决定输入变量是否被删除
         verbose - 是否打印进入模型变量以及排除模型变量
+        min_var_num - 设置最小入模变量数，默认3
+        max_var_num - 设置最大入模变量数，默认·15
+        strict_mode - 严格·模式， 关系到入模变量的数目，默认False
     Returns:
 
     Always set threshold_in < threshold_out to avoid infinite looping.
 
     """
+
     func_dict = {'max':(np.max, np.argmax),'min':(np.min,np.argmin)}
 
     def choice_waldtst(included, f_n):
@@ -268,20 +273,22 @@ def stepwise_selection(train: pd.DataFrame,
     cols = set(X.columns)
     # 迭代次数
     iter_num = 1
+    history = []
 
     while True:
         print('this is the {} time iteration'.format(iter_num))
         iter_num += 1
         changed = False
 
-        excluded = [col for col in cols if col not in included]
+        excluded = [col for col in cols if (col not in included) and (col not in history)]
 
         best_chival, best_feature = choice_waldtst(excluded, 'min')
+        history.append(best_feature)
 
         if best_chival < sle:
             included.append(best_feature)
             if  verbose:
-                print(included)
+                print('include:',included)
                 print('Add  {:30} with chi-square p-value: {:.6}'.format(best_feature, best_chival))
             changed=True
 
@@ -292,18 +299,21 @@ def stepwise_selection(train: pd.DataFrame,
 
         if worst_chival > sls:
             included.remove(worst_feature)
-            if best_feature != worst_feature:
-                changed = True
-            else:
-                changed = False
+            if strict_mode:
+                if best_feature != worst_feature:
+                    changed = True
+                else:
+                    changed = False
             if verbose:
                 print('Drop {:30} with chi-square p-value: {:.6}'.format(worst_feature, worst_chival))
-        if not changed:
+
+        if (len(included) >= max_var_num) or (not changed):
             break
 
     result = build_logistic_model(y_n, included, train)
 
     return result
+#构造逐步回归筛选变量并建模
 
 def backward_selection(train: pd.DataFrame,
                        y_name: str ='Y',
@@ -325,7 +335,7 @@ def backward_selection(train: pd.DataFrame,
         result = build_logistic_model(y_n, features, train)
         result_w = result.wald_test_terms()
         result_t = result_w.summary_frame()
-        feature_select = set(f for f in result_t[result_t['P>chi2'] < sls].index if f != 'Intercept')
+        feature_select = [f for f in result_t[result_t['P>chi2'] < sls].index if f != 'Intercept']
         if log and feature_select == log[-1]:
             if verbose:
                 print('the log of building the model is ', log)
