@@ -74,7 +74,7 @@ def sample_weight(Train_t,y,i_0,j_1):
     return Train_weight
 
 
-def build_logistic_model(y_name, X_names, train,seed=2020,maxiter=None):
+def build_logistic_model(y_name, X_names, train,seed=2020,maxiter=None,disp=True):
     """
     建立逻辑回归模型，此方法是使用stats的内嵌方法，不具备变量筛选功能，
     stepwise_selection以及backward_selection是以此方法为基础
@@ -90,7 +90,7 @@ def build_logistic_model(y_name, X_names, train,seed=2020,maxiter=None):
     model = smf.logit(y_name + " ~ " + "+".join(X_names), train)
     if not maxiter:
         maxiter = train.shape[0]
-    result = model.fit(maxiter=maxiter)
+    result = model.fit(maxiter=maxiter,disp=disp)
     return result
 
 def build_logistic_model_skl(X_train, y_train, **kwargs):
@@ -276,6 +276,7 @@ def stepwise_selection(train: pd.DataFrame,
     history = []
 
     while True:
+        print()
         print('this is the {} time iteration'.format(iter_num))
         iter_num += 1
         changed = False
