@@ -60,11 +60,11 @@ class modeling(object):
         # todo gini分箱存在bug，需修改
         # 此时data_1
         data_1, new_col,cate_process_dict = auto_ginni_split(self.df,
-                                           conti_var=[],
-                                           cate_var=var_discrete_analyse,
-                                           y_name=self.y,
-                                           gaps=0.05,
-                                           verbose=verbose)
+                                                             conti_var=[],
+                                                             cate_var=var_discrete_analyse,
+                                                             y_name=self.y,
+                                                             gaps=0.05,
+                                                             verbose=verbose)
         self.cate_process_dict = cate_process_dict
         var_discrete_for_model = new_col
 
@@ -77,16 +77,17 @@ class modeling(object):
         print()
         print('正在进行---连续变量自动拟合。。。。。。')
         var_fittings = [var_change(data_1, col,self.y, n=20) for col in var_continua_for_model]
+
+        self.var_fitting_process = {}
+
         if any(var_fittings):
-            var_fitting_process = {}
             for i in var_fittings:
                 if not i: continue
                 var, feature, series = i
                 print('%s is added to training set' % (var+feature))
                 data_1[var+feature] = series
                 var_continua_for_model.append(var+feature)
-                var_fitting_process[var]=feature
-            self.var_fitting_process = var_fitting_process
+                self.var_fitting_process[var]=feature
 
         print()
         print('正在进行---入模变量相关性检验。。。。。。')
@@ -100,7 +101,9 @@ class modeling(object):
         var_for_model_all_ = keep_vars2 + independent_var
         self.var_for_model_all_ = var_for_model_all_
         var_for_model_all_y = var_for_model_all_ + [self.y]
-
+        print()
+        print('入模变量为',var_for_model_all_y)
+        print()
         # 是否划分训练集、测试集
         train = data_1
         if tst_split:
@@ -192,4 +195,288 @@ class modeling(object):
 
 
 if __name__ == '__main__':
-    pass
+
+    import pandas as pd
+    import numpy as np
+    from code_for_model_platform_cls.auto_modeling import modeling
+
+    df = pd.read_csv('../data/sjf_train_data.csv')
+
+    str1 = """AGE
+    STOP_MONTH
+    CERT_NUMS
+    INTER_LONG_FEE_FIRST
+    INTER_LONG_FEE_SECOND
+    INTER_LONG_FEE_THIRD
+    ROAM_NUM_FIRST
+    OUT_DURA_M1
+    OUT_NUM_M1
+    IN_DURA_M1
+    IN_NUM_M1
+    OUT_COUNROAM_NUM_M1
+    OUT_INTERROAM_NUM_M1
+    IN_COUNROAM_NUM_M1
+    IN_INTERROAM_NUM_M1
+    OUT_COUNLONG_NUM_M1
+    OUT_INTERLONG_NUM_M1
+    NOROAM_LOCAL_NUM_M1
+    ROAM_LOCAL_NUM_M1
+    NOROAM_COUNLONG_NUM_M1
+    ROAM_COUNLONG_NUM_M1
+    FLUX_NUM_M1
+    FREE_FLUX_NUM_M1
+    BILL_FLUX_NUM_M1
+    LOCAL_FLUX_NUM_M1
+    COUN_FLUX_NUM_M1
+    INTER_FLUX_NUM_M1
+    TOTAL_FLUX_M1
+    FREE_FLUX_M1
+    BILL_FLUX_M1
+    TOTAL_FLUX_DURA_M1
+    FREE_FLUX_DURA_M1
+    BILL_FLUX_DURA_M1
+    FLUX_FEE_M1
+    PROD_IN_LOCAL_FLUX_M1
+    PROD_IN_COUN_FLUX_M1
+    PROD_IN_INTER_FLUX_M1
+    DEV_CHANGE_NUM_Y1
+    CONTACT_CNT_M1
+    NIGHT_IN_CNT_M1
+    NIGHT_OUT_CNT_M1
+    NIGHT_CNT_M1
+    SHIPIN_APP_NUM_M1
+    SP_VISIT_CNT_M1
+    SP_ACTIVE_MAX_DAYS_M1
+    YINPIN_APP_NUM_M1
+    YP_VISIT_CNT_M1
+    YP_ACTIVE_MAX_DAYS_M1
+    WEIXIN_APP_NUM_M1
+    WX_VISIT_CNT_M1
+    WX_ACTIVE_MAX_DAYS_M1
+    QQ_APP_NUM_M1
+    QQ_VISIT_CNT_M1
+    QQ_ACTIVE_MAX_DAYS_M1
+    MILIAO_APP_NUM_M1
+    ML_VISIT_CNT_M1
+    ML_ACTIVE_MAX_DAYS_M1
+    GOUWU_APP_NUM_M1
+    GW_VISIT_CNT_M1
+    GW_ACTIVE_MAX_DAYS_M1
+    ZHIFUBAO_APP_NUM_M1
+    ZFB_VISIT_CNT_M1
+    ZFB_ACTIVE_MAX_DAYS_M1
+    SJYH_APP_NUM_M1
+    SJYH_VISIT_CNT_M1
+    SJYH_ACTIVE_MAX_DAYS_M1
+    WAIMAI_APP_NUM_M1
+    WM_VISIT_CNT_M1
+    WM_ACTIVE_MAX_DAYS_M1
+    TUANGOU_APP_NUM_M1
+    TG_VISIT_CNT_M1
+    TG_ACTIVE_MAX_DAYS_M1
+    MUYING_APP_NUM_M1
+    MY_VISIT_CNT_M1
+    MY_ACTIVE_MAX_DAYS_M1
+    MAIL_APP_NUM_M1
+    MAIL_VISIT_CNT_M1
+    MAIL_ACTIVE_MAX_DAYS_M1
+    ZHENGQUAN_APP_NUM_M1
+    ZQ_VISIT_CNT_M1
+    ZQ_ACTIVE_MAX_DAYS_M1
+    BAOXIAN_APP_NUM_M1
+    BX_VISIT_CNT_M1
+    BX_ACTIVE_MAX_DAYS_M1
+    LICAI_APP_NUM_M1
+    LC_VISIT_CNT_M1
+    LC_ACTIVE_MAX_DAYS_M1
+    XINYONGKA_APP_NUM_M1
+    XYK_VISIT_CNT_M1
+    XYK_ACTIVE_MAX_DAYS_M1
+    CAIPIAO_APP_NUM_M1
+    CP_VISIT_CNT_M1
+    CP_ACTIVE_MAX_DAYS_M1
+    DAIKUAN_APP_NUM_M1
+    DK_VISIT_CNT_M1
+    DK_ACTIVE_MAX_DAYS_M1
+    DAIKUAN1_APP_NUM_M1
+    DK1_VISIT_CNT_M1
+    DK1_ACTIVE_MAX_DAYS_M1
+    DAIKUAN2_APP_NUM_M1
+    DK2_VISIT_CNT_M1
+    DK2_ACTIVE_MAX_DAYS_M1
+    DAIKUAN3_APP_NUM_M1
+    DK3_VISIT_CNT_M1
+    DK3_ACTIVE_MAX_DAYS_M1
+    REAL_HOME_FLAG_M1
+    LIKE_HOME_FLAG_M1
+    REAL_WORK_FLAG_M1
+    LIKE_WORK_FLAG_M1
+    ST_MAXDURA_PERDAY_M1
+    ST_NUM_M1
+    ST_NUM_PERDAY_M1
+    HOME_ST_NUM_M1
+    HOME_ST_NUM_PERDAY_M1
+    WORK_ST_NUM_M1
+    WORK_ST_NUM_PERDAY_M1
+    MIDNIGHT_NUM_M1
+    MIDNIGHT_IN_NUM_M1
+    MIDNIGHT_OUT_NUM_M1
+    MIDNIGHT_CNT_M1
+    MIDNIGHT_IN_CNT_M1
+    MIDNIGHT_OUT_CNT_M1
+    MIDNIGHT_DURA_M1
+    WORK_NIGHT_NUM_M1
+    WORK_NIGHT_IN_NUM_M1
+    WORK_NIGHT_OUT_NUM_M1
+    WORK_NIGHT_CNT_M1
+    WORK_NIGHT_IN_CNT_M1
+    WORK_NIGHT_OUT_CNT_M1
+    WORK_NIGHT_DURA_M1
+    WEEKEND_NIGHT_NUM_M1
+    WEEKEND_NIGHT_IN_NUM_M1
+    WEEKEND_NIGHT_OUT_NUM_M1
+    WEEKEND_NIGHT_CNT_M1
+    WEEKEND_NIGHT_IN_CNT_M1
+    WEEKEND_NIGHT_OUT_CNT_M1
+    WEEKEND_NIGHT_DURA_M1
+    WORK_DAY_NUM_M1
+    WORK_DAY_IN_NUM_M1
+    WORK_DAY_OUT_NUM_M1
+    WORK_DAY_CNT_M1
+    WORK_DAY_IN_CNT_M1
+    WORK_DAY_OUT_CNT_M1
+    WORK_DAY_DURA_M1
+    WEEKEND_DAY_NUM_M1
+    WEEKEND_DAY_IN_NUM_M1
+    WEEKEND_DAY_OUT_NUM_M1
+    WEEKEND_DAY_CNT_M1
+    WEEKEND_DAY_IN_CNT_M1
+    WEEKEND_DAY_OUT_CNT_M1
+    WEEKEND_DAY_DURA_M1
+    WORK_NIGHT_DURA_AVG_M1
+    WEEKEND_NIGHT_DURA_AVG_M1
+    WORK_DAY_DURA_AVG_M1
+    WEEKEND_DAY_DURA_AVG_M1
+    MIDNIGHT_DURA_AVG_M1
+    SHORT_LOCAL_CALLING_NUMS
+    SHORT_LOCAL_CALLED_NUMS
+    SHORT_ROAM_COUN_CALLING_NUMS
+    SHORT_ROAM_INTER_CALLING_NUMS
+    SHORT_ROAM_COUN_CALLED_NUMS
+    SHORT_ROAM_INTER_CALLED_NUMS
+    SHORT_TOLL_COUN_CALLING_NUMS
+    SHORT_TOLL_INTER_CALLING_NUMS
+    MID_LOCAL_CALLING_NUMS
+    MID_LOCAL_CALLED_NUMS
+    MID_ROAM_COUN_CALLING_NUMS
+    MID_ROAM_INTER_CALLING_NUMS
+    MID_ROAM_COUN_CALLED_NUMS
+    MID_ROAM_INTER_CALLED_NUMS
+    MID_TOLL_COUN_CALLING_NUMS
+    MID_TOLL_INTER_CALLING_NUMS
+    LONG_LOCAL_CALLING_NUMS
+    LONG_LOCAL_CALLED_NUMS
+    LONG_ROAM_COUN_CALLING_NUMS
+    LONG_ROAM_INTER_CALLING_NUMS
+    LONG_ROAM_COUN_CALLED_NUMS
+    LONG_ROAM_INTER_CALLED_NUMS
+    LONG_TOLL_COUN_CALLING_NUMS
+    LONG_TOLL_INTER_CALLING_NUMS
+    SHORT_LOCAL_CALLING_COUNTS
+    SHORT_LOCAL_CALLED_COUNTS
+    SHORT_ROAM_COUN_CALLING_COUNTS
+    SHORT_ROAM_INTER_CALLING_COUNTS
+    SHORT_ROAM_COUN_CALLED_COUNTS
+    SHORT_ROAM_INTER_CALLED_COUNTS
+    SHORT_TOLL_COUN_CALLING_COUNTS
+    SHORT_TOLL_INTER_CALLING_COUNTS
+    MID_LOCAL_CALLING_COUNTS
+    MID_LOCAL_CALLED_COUNTS
+    MID_ROAM_COUN_CALLING_COUNTS
+    MID_ROAM_INTER_CALLING_COUNTS
+    MID_ROAM_COUN_CALLED_COUNTS
+    MID_ROAM_INTER_CALLED_COUNTS
+    MID_TOLL_COUN_CALLING_COUNTS
+    MID_TOLL_INTER_CALLING_COUNTS
+    LONG_LOCAL_CALLING_COUNTS
+    LONG_LOCAL_CALLED_COUNTS
+    LONG_ROAM_COUN_CALLING_COUNTS
+    LONG_ROAM_INTER_CALLING_COUNTS
+    LONG_ROAM_COUN_CALLED_COUNTS
+    LONG_ROAM_INTER_CALLED_COUNTS
+    LONG_TOLL_COUN_CALLING_COUNTS
+    LONG_TOLL_INTER_CALLING_COUNTS
+    CALLING_BANK_COUNT
+    CALLING_BANK_DURA
+    CALLED_BANK_COUNT
+    CALLED_BANK_DURA
+    CALLING_BANK_NUMS
+    CALLED_BANK_NUMS
+    LOCAL_CALLING_COUNTS
+    LOCAL_CALLED_COUNTS
+    ROAM_COUN_CALLING_COUNTS
+    ROAM_INTER_CALLING_COUNTS
+    ROAM_COUN_CALLED_COUNTS
+    ROAM_INTER_CALLED_COUNTS
+    TOLL_COUN_CALLING_COUNTS
+    TOLL_INTER_CALLING_COUNTS
+    TOTAL_SMS_NUM
+    PTP_SMS_NUM
+    SP_SMS_NUM
+    OUT_SMS_NUM
+    IN_SMS_NUM
+    FREE_SMS_NUM
+    BILL_SMS_NUM
+    PTP_SMS_FEE
+    SP_SMS_FEE
+    TOTAL_SMS_FEE
+    PTP_SMS_RATE
+    SP_SMS_RATE
+    IN_SMS_RATE
+    FREE_SMS_RATE
+    PTP_OUT_FREE_RATE
+    PTP_OUT_CMCC_RATE
+    PTP_SMS_FEE_RATE
+    PTP_SMS_IN_RATE
+    SMS_NUM_AVG_M3
+    SMS_NUM_RATE_M1
+    innet_month
+    usage_month
+    total_fee_m1
+    total_fee_m3
+    out_call_fee_m1
+    out_call_fee_m3
+    out_flux_fee_m1
+    out_flux_fee_m3
+    INCR_FEE_m1
+    """
+    str2 = """CERT_TYPE
+    GENDER
+    PAY_MODE
+    SERVICE_TYPE
+    GROUP_FLAG
+    INNET_FLAG
+    USER_GROUP_FLAG
+    MINOR_ENTERPRISES_FLAG
+    CUST_SIZE
+    factory_desc_new
+    mobile_prov
+    """
+    con = [col.strip() for col in str1.split('\n') if col]
+    dis = [col.strip() for col in str2.split('\n') if col]
+
+    model14 = modeling(df, 'Y',
+                       var_del=['Y', '_TEMA001'],
+                       var_discrete=dis,
+                       var_continual=con)
+    model14.fit(verbose=True, sle=0.05, sls=0.05, tst_split=False)
+    s = model14.model_final.summary()
+
+
+
+
+
+
+
+
+
