@@ -362,10 +362,13 @@ class VarClusHi(object):
             demo_vc = VarClusHi(data_1[i])
             demo_vc.varclus()
             t = demo_vc.rsquare
+            t.sort_values(['RS_Ratio','Variable'],inplace=True)
+            t.reset_index(inplace=True,drop=True)
             if verbose:
+                print()
                 print(demo_vc.info)
                 print(t)
-            keep_vars.append(t['Variable'][np.argmin(t['RS_Ratio'])])
+            keep_vars.append(t['Variable'][0])
         return keep_vars
 
 
