@@ -76,7 +76,7 @@ class modeling(object):
 
         print()
         print('正在进行---连续变量自动拟合。。。。。。')
-        var_fittings = [var_change(data_1, col,self.y, n=20) for col in var_continua_for_model]
+        var_fittings = [var_change(data_1, col[:-2], self.y, n=20) for col in var_continua_for_model]
 
         self.var_fitting_process = {}
 
@@ -115,16 +115,21 @@ class modeling(object):
         # 若给定褚时列表则依据给定列表设置入模变量
         # todo
         initial_list = kwargs.get('initial_list',[])
+        max_var_num = kwargs.get('max_var_num', 20)
         # 构造逐步回归筛选变量并建模
         if LG_type in ('step', 'STEP'):
-            self.model_final = stepwise_selection(train[var_for_model_all_y],initial_list=initial_list,y_n=self.y, sle=sle, sls=sls, verbose=verbose)
+            self.model_final = stepwise_selection(train[var_for_model_all_y],initial_list=initial_list,y_n=self.y, sle=sle, sls=sls, verbose=verbose,max_var_num=max_var_num)
         else:
             self.model_final = backward_selection(train[var_for_model_all_y],y_name=self.y, sle=sle, sls=sls, verbose=verbose)
 
+        print()
+        print('正在汇总建模过程变量删除情况')
         self.__print_model_process( var_tongzhi_list_1, var_tongzhi_list_2, list_remove_1, var_del2)
 
         y_pred = self.model_final.predict(train[var_for_model_all_])
 
+        print()
+        print('正在打印模型评价指标')
 
         self.auc = roc_auc_gini(train[self.y], y_pred)
         self.ks = get_ks(y_pred, train[self.y])
@@ -185,13 +190,13 @@ class modeling(object):
     # 打印变量处理过程
     def __print_model_process(self, *args):
         for i,e in enumerate(args):
-            print('-'*400)
+            print('-'*200)
             print(f'建模流程 第{i+1}步 {e[0]} 删除的变量有: ')
-            print('-' * 400)
+            print('-' * 200)
             for v in e[1]:
                 print(v,end='\t')
             print(end='\n')
-            print('-' * 400)
+            print('-' * 200)
 
 
 if __name__ == '__main__':
