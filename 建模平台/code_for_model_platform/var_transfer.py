@@ -21,6 +21,8 @@ def var_change(in_df:pd.DataFrame,
     :return:
 
     """
+    split_x = X+'_1'
+
     if (X_min is None) and (X_max is None):
         df = in_df[[X,Y]].copy()
 
@@ -67,17 +69,21 @@ def var_change(in_df:pd.DataFrame,
     # 从7种转换方法种，挑选最优的转换方法。用"statsmodels"下的Logit，
     # 逐一与y进行建模，并计算每个转化后变量的p_value。
     column=[X, "_sq","_sqrt","_cu","_curt","_log",]
+    corr = (df_1[column].corr()>0.75)
 
-    from code_for_model_platform.modeling import stepwise_selection, build_logistic_model
+    from code_for_model_platform.modeling import  build_logistic_model
     from sklearn.metrics import roc_auc_score
-    model_result = build_logistic_model(Y, column, df_1,seed=2020,maxiter=None)
+    try:
+        model_result = build_logistic_model(Y, column, df_1,seed=2020,maxiter=1000, disp=False)
+    except:
+        return None
 
     min_ix = np.argmin(model_result.pvalues[1:])
     index = model_result.cov_params().index.values[1:]
 
     feature = index[min_ix]
     auc = roc_auc_score(df_1[Y], model_result.predict())
-    if (feature != X) and ( auc > 0.8):
+    if (feature != X) and ( auc > 0.7):
         return  X, feature, df_1[feature]
     return None
 
